@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/MainPage.qml</file>
+        <file>qml/TextDialog.qml</file>
+        <file>qml/NewMove.qml</file>
+    </qresource>
+</RCC>

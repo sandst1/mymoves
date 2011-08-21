@@ -1,0 +1,15 @@
+Source: mymoves
+Section: user/other
+Priority: optional
+Maintainer: Topi <topi@unknown>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.7.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: mymoves
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, mymoveserver
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+XSBC-Maemo-Display-Name: mymoves
+XB-Maemo-Icon-26: iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAiRJREFUaIHt2EuozGEYx/GPOZGyYOHEcVscEiWyUpay4WSjXJKirI6djbudJLuTHVI2yOaUSxTpZC+XBbLAITrpnFBiNi6L/5ExZv7zzvv/z5mZ+n9XM+/7PM/7e+d53ttQUFBQEMg0bMRulPIMOlU8wUw8xUJsQHkKx8/EMgz6+8sPY6hdYgbwHl9xHWtTbEsYwcUafWdxIW9xjTiEt9iEWTiCiRT7bZLSmV6jr7eBb0uYQH9V2yrsqGP/GNtT4h3IQ1Qo11L67uJEjfa9AXFfSxZ3S1mALyn9q/EZ8yralqtdOtXcxvF4aWEcxqUGNldxrOL70cDYK/BJsrW2hPV4o/GZUcLo5OfF0jNWzRx8bFoZegJsBvFcUudp/JoUMoJdkgmnrZtKypJt+WGgfVPcw9ZA29mS68IN7GtynB7sadIniLEm7e/gUeRYwzgV6VuXm03a90sOuBiWStbOkkj/mpyL8Mly2zyDy3kONB4h4meEzx8O4kGoccgEvsdrieY8doYYhkzgWzYtUfzAaQFXjFaVUB5sxgf/Xk/+o1MzAM9wBSezBhrIriWauRq8GUIyMCMfLVGMow9bsgTZn4+WTLxQ52oekoG+fLVEcV8GHbdyFJI7IRmY33IVGeiWEspEWQdnISQDYxqchu0kZAKjWNRqIbGEvIl7sU6H7kYhGXgp+Y+na1mJd+0WkZVXWNNuEbUIfbt2bBl1/QQKCgoKCjLxG//TUDw0QAO5AAAAAElFTkSuQmCC
