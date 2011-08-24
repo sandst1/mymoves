@@ -23,16 +23,19 @@
 #include <QtDeclarative>
 #include "canvas.h"
 #include "mymovesinterface.h"
+#include "qdeclarativetoucharea.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QApplication::setGraphicsSystem("raster");
-    QDeclarativeView view;
+    QDeclarativeView view;    
 
     QGLWidget glWidget(QGLFormat(QGL::SampleBuffers));
     view.setViewport(&glWidget);
     view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+
+    QDeclarativeTouchArea::registerQML();
 
     MyMovesInterface mymoves;
     view.rootContext()->setContextProperty("MyMovesInterface", &mymoves);

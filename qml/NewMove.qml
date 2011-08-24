@@ -31,7 +31,7 @@ Page {
         anchors.margins: 20
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 20
+        spacing: 10
 
         Rectangle {
             id: box
@@ -40,7 +40,7 @@ Page {
             radius: 10
             color: "#000000"
             width: 440
-            height: 440
+            height: 600
             anchors.horizontalCenter: parent.horizontalCenter
 
             property bool pressed: false
@@ -51,9 +51,9 @@ Page {
             Canvas {
                 id: canvas
                 anchors.fill: parent
-            }
+            }           
 
-            MouseArea {
+            /*MouseArea {
                 anchors.fill: parent
                 id: touchArea
                 onPressed: {
@@ -72,6 +72,53 @@ Page {
                     box.gestureExists = true;
                     box.ctx.fillRect(mouseX-4, mouseY-4, 9, 9);
                 }
+            }*/
+
+            TouchArea {
+                  id: touchArea
+                  anchors.fill: parent
+
+                  minimumTouches: 1
+                  maximumTouches: 5
+
+                  touchPoints: [
+                      TouchPoint {
+                      },
+                      TouchPoint {
+                      },
+                      TouchPoint {
+                      },
+                      TouchPoint {
+                      },
+                      TouchPoint {
+                      }
+                  ]
+
+                  onTouchStart: {
+                      for (var i=0; i < touchArea.touches.length; i++) {
+                          var touch = touchArea.touches[i];
+                          box.ctx.fillStyle="#000000";
+                          box.ctx.clear();
+                          box.ctx.fillStyle = "#ffffff";
+                          box.ctx.strokeStyle = "#ffffff";
+                          box.ctx.fillRect(touch.x-4, touch.y-4, 9, 9);
+                      }
+                  }
+
+                  onTouchMove: {
+                      for (var i=0; i < touchArea.touches.length; i++) {
+                          var touch = touchArea.touches[i];
+                          box.ctx.fillRect(touch.x-4, touch.y-4, 9, 9);
+                      }
+                  }
+
+                  onTouchEnd: {
+                      for (var i=0; i < touchArea.touches.length; i++) {
+                          var touch = touchArea.touches[i];
+                          box.gestureExists = true;
+                          box.ctx.fillRect(touch.x-4, touch.y-4, 9, 9);
+                      }
+                  }
             }
 
             Component.onCompleted: {

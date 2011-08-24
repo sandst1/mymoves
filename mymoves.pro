@@ -27,7 +27,8 @@ SOURCES += main.cpp \
     canvastimer.cpp \
     canvasplugin.cpp \
     canvas.cpp \
-    mymovesinterface.cpp
+    mymovesinterface.cpp \
+    qdeclarativetoucharea.cpp
 
 
 OTHER_FILES += \
@@ -62,4 +63,5 @@ HEADERS += \
     canvastimer.h \
     canvasplugin.h \
     canvas.h \
-    mymovesinterface.h
+    mymovesinterface.h \
+    qdeclarativetoucharea.h
