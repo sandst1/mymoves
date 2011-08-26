@@ -95,10 +95,11 @@ Page {
                   ]
 
                   onTouchStart: {
-                      for (var i=0; i < touchArea.touches.length; i++) {
-                          var touch = touchArea.touches[i];
+                      box.gestureExists = false;
+                      for (var i=0; i < touchArea.touches.length; i++) {                          
+                          var touch = touchArea.touches[i];                          
                           box.ctx.fillStyle="#000000";
-                          box.ctx.clear();
+                          box.ctx.clear();                          
                           box.ctx.fillStyle = "#ffffff";
                           box.ctx.strokeStyle = "#ffffff";
                           box.ctx.fillRect(touch.x-4, touch.y-4, 9, 9);
@@ -113,11 +114,8 @@ Page {
                   }
 
                   onTouchEnd: {
-                      for (var i=0; i < touchArea.touches.length; i++) {
-                          var touch = touchArea.touches[i];
-                          box.gestureExists = true;
-                          box.ctx.fillRect(touch.x-4, touch.y-4, 9, 9);
-                      }
+                      console.log("Setting gestureExists to true");
+                      box.gestureExists = true;
                   }
             }
 
@@ -141,12 +139,16 @@ Page {
             id: saveButton
             text: "Save"
             onClicked: {
+                console.log("Save button clicked!");
                 if (box.gestureExists) {
+                    console.log("Gesture exists!");
                     canvas.save("/home/user/MyDocs/moves/imgmymove"+MyMovesInterface.newGestureNumber()+".png");
                     //MyMovesInterface.saveGesture(commandText.text);
                     MyMovesInterface.saveGesture("Add your command here");
                     textDialog.text = "Gesture Saved";
                     textDialog.show();
+                } else {
+                    console.log("Gesture doesn't exist!");
                 }
             }
         }
