@@ -142,7 +142,7 @@ Page {
                 console.log("Save button clicked!");
                 if (box.gestureExists) {
                     console.log("Gesture exists!");
-                    canvas.save("/home/user/MyDocs/moves/imgmymove"+MyMovesInterface.newGestureNumber()+".png");
+                    canvas.save("/home/user/MyDocs/.moves/imgmymove"+MyMovesInterface.newGestureNumber()+".png");
                     //MyMovesInterface.saveGesture(commandText.text);
                     MyMovesInterface.saveGesture("Add your command here");
                     textDialog.text = "Gesture Saved";
