@@ -28,7 +28,9 @@ SOURCES += main.cpp \
     canvasplugin.cpp \
     canvas.cpp \
     mymovesinterface.cpp \
-    qdeclarativetoucharea.cpp
+    qdeclarativetoucharea.cpp \
+    listmodel.cpp \
+    appitem.cpp
 
 
 OTHER_FILES += \
@@ -44,7 +46,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
     qml/TextDialog.qml \
-    qml/NewMove.qml
+    qml/NewMove.qml \
+    qml/AppList.qml
 
 RESOURCES += \
     res.qrc
@@ -64,4 +67,6 @@ HEADERS += \
     canvasplugin.h \
     canvas.h \
     mymovesinterface.h \
-    qdeclarativetoucharea.h
+    qdeclarativetoucharea.h \
+    listmodel.h \
+    appitem.h

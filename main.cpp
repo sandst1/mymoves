@@ -17,13 +17,61 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QDebug>
+#include <QFile>
 #include <QGLFormat>
 #include <QGLWidget>
+#include <QString>
 #include <QtGui/QApplication>
 #include <QtDeclarative>
+
+#include "appitem.h"
 #include "canvas.h"
 #include "mymovesinterface.h"
 #include "qdeclarativetoucharea.h"
+#include "listmodel.h"
+
+
+void createAppList(ListModel* applist)
+{
+    QDir dir("/usr/share/applications");
+    QStringList filter("*.desktop");
+    QStringList files = dir.entryList(filter);
+    for (int i = 0; i < files.count(); i++)
+    {
+        QFile dfile(QString("/usr/share/applications/") + files.at(i));
+        dfile.open(QIODevice::ReadOnly);
+
+        QString line = dfile.readLine();
+        QString name("");
+        QString command("");
+        bool itemReady = false;
+        do
+        {
+            if (line.startsWith("Name="))
+            {
+                name = line.mid(5);
+                //qDebug() << name;
+                if ( !command.isEmpty())
+                    itemReady = true;
+            }
+            else if (line.startsWith("Exec="))
+            {
+                command = line.mid(5);
+                //qDebug() << command;
+                if ( !name.isEmpty())
+                    itemReady = true;
+            }
+            line = dfile.readLine();
+        } while (!line.isEmpty());
+
+        if (itemReady)
+            applist->appendRow(new AppItem(name, command, applist));
+
+        dfile.close();
+    }
+    applist->sort();
+}
 
 int main(int argc, char *argv[])
 {
@@ -37,8 +85,12 @@ int main(int argc, char *argv[])
 
     QDeclarativeTouchArea::registerQML();
 
+    ListModel* applist = new ListModel(new AppItem, &app);
+    createAppList(applist);
+
     MyMovesInterface mymoves;
     view.rootContext()->setContextProperty("MyMovesInterface", &mymoves);
+    view.rootContext()->setContextProperty("AppListModel", applist);
 
     Canvas::registerQML();
     view.setSource(QUrl("qrc:/qml/main.qml"));

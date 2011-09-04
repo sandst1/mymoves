@@ -4,5 +4,6 @@
         <file>qml/MainPage.qml</file>
         <file>qml/TextDialog.qml</file>
         <file>qml/NewMove.qml</file>
+        <file>qml/AppList.qml</file>
     </qresource>
 </RCC>

@@ -18,45 +18,43 @@
  */
 import QtQuick 1.1
 import com.meego 1.0
-import QmlCanvas 1.0
+
 Page {
-    id: mainPage
-    tools: commonTools    
+    id: appList
+    tools: commonTools
 
     orientationLock: PageOrientation.LockPortrait
 
-    Column {
+    Item {
+        id: container
         anchors.centerIn: parent
-        spacing: 20
-        Button {
-            id: recButton
-            text: "New Move"
-            onClicked: {
-                pageStack.push("qrc:/qml/NewMove.qml");
-            }
-        }
-
-        Button {
-            id: appList
-            text: "Show app list"
-            onClicked: {
-                pageStack.push("qrc:/qml/AppList.qml");
-            }
-        }
-
-        Button {
-            id: observeButton
-            text: "Start observing gestures"
-            onClicked: {
-                MyMovesInterface.observeGestures();
-            }
-        }
-
-        Button {
-            id: stopObserving
-            text: "Stop observing"
-            onClicked: {
-                MyMovesInterface.stopObserving();
+        width: 400
+        height: 800
+        ListView {
+            anchors.fill: parent
+            spacing: 10
+            model: AppListModel
+            delegate: Rectangle {
+                id: delegate
+                width: 400
+                height: 100
+                border.width: 2
+                border.color: "#0000ff"
+                radius: 5
+                Text {
+                    id: nameText
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    text: name
+                    font.pointSize: 20
+                }
+                Text {
+                    id: cmdText
+                    anchors.top: nameText.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: command
+                    font.pointSize: 20
+                }
             }
         }
     }
