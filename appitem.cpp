@@ -1,8 +1,7 @@
 #include "appitem.h"
 
 AppItem::AppItem(const QString& name, const QString& command, QObject *parent) :
-    //ListItem(parent),
-    QObject(parent),
+    ListItem(parent),
     m_name(name),
     m_command(command)
 {

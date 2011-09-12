@@ -7,9 +7,11 @@
 #include <QString>
 #include <QVariant>
 
+#include <QDebug>
+#include "listmodel.h"
 //#include "app.h"
 
-class AppItem : public QObject //: public ListItem
+class AppItem : public ListItem
 {
     Q_OBJECT
 public:
@@ -19,7 +21,7 @@ public:
         //,IconRole
     };
 
-    AppItem(QObject* parent = 0): QObject(parent) {}
+    AppItem(QObject* parent = 0): ListItem(parent) {}
     explicit AppItem(const QString& name, const QString& command, QObject *parent = 0);
     QVariant data(int role) const;
     QHash<int, QByteArray> roleNames() const;

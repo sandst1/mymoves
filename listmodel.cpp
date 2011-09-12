@@ -7,7 +7,7 @@
 
 #include "listmodel.h"
 
-ListModel::ListModel(AppItem* prototype, QObject *parent) :
+ListModel::ListModel(ListItem* prototype, QObject *parent) :
     QAbstractListModel(parent), m_prototype(prototype)
 {
   setRoleNames(m_prototype->roleNames());
@@ -31,22 +31,22 @@ ListModel::~ListModel() {
   clear();
 }
 
-void ListModel::appendRow(AppItem *item)
+void ListModel::appendRow(ListItem *item)
 {
-  appendRows(QList<AppItem*>() << item);
+  appendRows(QList<ListItem*>() << item);
 }
 
-void ListModel::appendRows(const QList<AppItem *> &items)
+void ListModel::appendRows(const QList<ListItem *> &items)
 {
   beginInsertRows(QModelIndex(), rowCount(), rowCount()+items.size()-1);
-  foreach(AppItem *item, items) {
+  foreach(ListItem *item, items) {
     connect(item, SIGNAL(dataChanged()), SLOT(handleItemChange()));
     m_list.append(item);
   }
   endInsertRows();
 }
 
-void ListModel::insertRow(int row, AppItem *item)
+void ListModel::insertRow(int row, ListItem *item)
 {
   beginInsertRows(QModelIndex(), row, row);
   connect(item, SIGNAL(dataChanged()), SLOT(handleItemChange()));
@@ -56,21 +56,21 @@ void ListModel::insertRow(int row, AppItem *item)
 
 void ListModel::handleItemChange()
 {
-  AppItem* item = static_cast<AppItem*>(sender());
+  ListItem* item = static_cast<ListItem*>(sender());
   QModelIndex index = indexFromItem(item);
   if(index.isValid())
     emit dataChanged(index, index);
 }
 
-AppItem * ListModel::find(const QString &id) const
+ListItem * ListModel::find(const QString &id) const
 {
-  foreach(AppItem* item, m_list) {
+  foreach(ListItem* item, m_list) {
     if(item->id() == id) return item;
   }
   return 0;
 }
 
-QModelIndex ListModel::indexFromItem(const AppItem *item) const
+QModelIndex ListModel::indexFromItem(const ListItem *item) const
 {
   Q_ASSERT(item);
   for(int row=0; row<m_list.size(); ++row) {
@@ -85,9 +85,9 @@ void ListModel::clear()
   m_list.clear();
 }
 
-bool ListModel::ItemLessThan(const AppItem& a, const AppItem& b)
+bool ListModel::ItemLessThan(ListItem* a, ListItem* b)
 {
-    return (a.id().localeAwareCompare(b.id()) < 0);
+    return (a->id().localeAwareCompare(b->id()) < 0);
 }
 
 void ListModel::sort()
@@ -118,10 +118,10 @@ bool ListModel::removeRows(int row, int count, const QModelIndex &parent)
   return true;
 }
 
-AppItem * ListModel::takeRow(int row)
+ListItem * ListModel::takeRow(int row)
 {
   beginRemoveRows(QModelIndex(), row, row);
-  AppItem* item = m_list.takeAt(row);
+  ListItem* item = m_list.takeAt(row);
   endRemoveRows();
   return item;
 }
