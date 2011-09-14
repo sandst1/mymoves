@@ -27,10 +27,12 @@
 
 #include "appitem.h"
 #include "canvas.h"
+#include "constants.h"
+#include "gestureitem.h"
+#include "listmodel.h"
+#include "gesturelistmodel.h"
 #include "mymovesinterface.h"
 #include "qdeclarativetoucharea.h"
-#include "listmodel.h"
-
 
 void createAppList(ListModel* applist)
 {
@@ -73,6 +75,30 @@ void createAppList(ListModel* applist)
     applist->sort();
 }
 
+void createGestureList(ListModel* gesturelist)
+{
+    for (int i = 0; i < SINGLE_GESTURES; i++)
+    {
+        QVariant gnum(i);
+        QString imgPath = QString(GESTURE_IMG_PATH) + gnum.toString() + GESTURE_IMG_EXT;
+        gesturelist->appendRow(new GestureItem(QString(gnum.toString()),imgPath, gesturelist));
+    }
+
+    for (int i = 0; i < DOUBLE_GESTURES; i++)
+    {
+        QVariant gnum(i);
+        QString imgPath = QString(GESTURE_IMG_PATH) + "d" + gnum.toString() + GESTURE_IMG_EXT;
+        gesturelist->appendRow(new GestureItem(QString("d"+gnum.toString()), imgPath, gesturelist));
+    }
+
+    for (int i = 0; i < TRIPLE_GESTURES; i++)
+    {
+        QVariant gnum(i);
+        QString imgPath = QString(GESTURE_IMG_PATH) + "t" + gnum.toString() + GESTURE_IMG_EXT;
+        gesturelist->appendRow(new GestureItem(QString("t"+gnum.toString()), imgPath, gesturelist));
+    }
+}
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -88,9 +114,23 @@ int main(int argc, char *argv[])
     ListModel* applist = new ListModel(new AppItem, &app);
     createAppList(applist);
 
+    GestureListModel* gesturelist = new GestureListModel(new GestureItem, &app);
+
+    // Create the gesture file if it doesn't exist
+    if (!QFile::exists(GESTURES_CONF_FILE))
+    {
+        createGestureList(gesturelist);
+        gesturelist->saveToDisk();
+    }
+    else
+    {
+        gesturelist->loadFromDisk();
+    }
+
     MyMovesInterface mymoves;
     view.rootContext()->setContextProperty("MyMovesInterface", &mymoves);
     view.rootContext()->setContextProperty("AppListModel", applist);
+    view.rootContext()->setContextProperty("GestureListModel", gesturelist);
 
     Canvas::registerQML();
     view.setSource(QUrl("qrc:/qml/main.qml"));

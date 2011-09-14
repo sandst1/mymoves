@@ -28,19 +28,27 @@ Page {
     Column {
         anchors.centerIn: parent
         spacing: 20
-        Button {
+        /*Button {
             id: recButton
             text: "New Move"
             onClicked: {
                 pageStack.push("qrc:/qml/NewMove.qml");
             }
+        }*/
+
+        Button {
+            id: myMoves
+            text: "My moves"
+            onClicked: {
+                pageStack.push("qrc:/qml/MyMoves.qml");
+            }
         }
 
         Button {
-            id: appList
-            text: "Show app list"
+            id: addMove
+            text: "Add a move"
             onClicked: {
-                pageStack.push("qrc:/qml/AppList.qml");
+                pageStack.push("qrc:/qml/AddMove.qml");
             }
         }
 

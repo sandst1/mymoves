@@ -25,34 +25,38 @@ Item {
     width: 400
     height: 800
 
-    property string selectedApp: "No app selected"
-    property string selectedCmd: ""
+    property string selectedGesture: ""
+    property int    selectedIndex: -1
+
     ListView {
         anchors.fill: parent
         spacing: 10
-        model: AppListModel
+        model: GestureListModel
         delegate: Rectangle {
                       id: delrect
                       width: 400
-                      height: 100
-                      border.width: 2
+                      height: 200
+                      anchors.horizontalCenter: parent.horizontalCenter
                       border.color: "#0000ff"
-                      color: "#ffffff"
+                      border.width: 3
+                      color: reserved ? "#8c8c8c" : "#ffffff"
                       radius: 5
-                      Text {
-                          id: nameText
+                      Image {
+                          width: 200
+                          height: 200
                           anchors.centerIn: parent
-                          text: name
-                          font.pointSize: 24
+                          source: image
                       }
 
                       MouseArea {
                           anchors.fill: parent
 
                           onReleased: {
-                              container.selectedApp = name;
-                              container.selectedCmd = command;
-                              container.visible = false;
+                              if (!reserved) {
+                                  container.selectedGesture = image;
+                                  container.selectedIndex   = index;
+                                  container.visible = false;
+                              }
                           }
                       }
                   }

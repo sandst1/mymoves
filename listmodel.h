@@ -11,7 +11,6 @@
 #include <QAbstractListModel>
 #include <QList>
 #include <QVariant>
-//#include "ListItem.h"
 
 class ListItem: public QObject {
   Q_OBJECT
@@ -53,7 +52,7 @@ public:
 private slots:
   void handleItemChange();
 
-private:
+protected:
   ListItem* m_prototype;
   QList<ListItem*> m_list;
 };

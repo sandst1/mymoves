@@ -30,7 +30,9 @@ SOURCES += main.cpp \
     mymovesinterface.cpp \
     qdeclarativetoucharea.cpp \
     listmodel.cpp \
-    appitem.cpp
+    appitem.cpp \
+    gestureitem.cpp \
+    gesturelistmodel.cpp
 
 
 OTHER_FILES += \
@@ -47,7 +49,10 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/changelog \
     qml/TextDialog.qml \
     qml/NewMove.qml \
-    qml/AppList.qml
+    qml/AppList.qml \
+    qml/GestureList.qml \
+    qml/MyMoves.qml \
+    qml/AddMove.qml
 
 RESOURCES += \
     res.qrc
@@ -69,4 +74,7 @@ HEADERS += \
     mymovesinterface.h \
     qdeclarativetoucharea.h \
     listmodel.h \
-    appitem.h
+    appitem.h \
+    gestureitem.h \
+    gesturelistmodel.h \
+    constants.h

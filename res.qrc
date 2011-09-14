@@ -5,23 +5,26 @@
         <file>qml/TextDialog.qml</file>
         <file>qml/NewMove.qml</file>
         <file>qml/AppList.qml</file>
-        <file>images/gestures/0.svg</file>
-        <file>images/gestures/1.svg</file>
-        <file>images/gestures/2.svg</file>
-        <file>images/gestures/3.svg</file>
-        <file>images/gestures/4.svg</file>
-        <file>images/gestures/5.svg</file>
-        <file>images/gestures/6.svg</file>
-        <file>images/gestures/7.svg</file>
-        <file>images/gestures/8.svg</file>
-        <file>images/gestures/9.svg</file>
-        <file>images/gestures/d0.svg</file>
-        <file>images/gestures/d1.svg</file>
-        <file>images/gestures/d2.svg</file>
-        <file>images/gestures/d3.svg</file>
-        <file>images/gestures/t0.svg</file>
-        <file>images/gestures/t1.svg</file>
-        <file>images/gestures/t2.svg</file>
-        <file>images/gestures/t3.svg</file>
+        <file>qml/GestureList.qml</file>
+        <file>images/gestures/0.png</file>
+        <file>images/gestures/1.png</file>
+        <file>images/gestures/2.png</file>
+        <file>images/gestures/3.png</file>
+        <file>images/gestures/4.png</file>
+        <file>images/gestures/5.png</file>
+        <file>images/gestures/6.png</file>
+        <file>images/gestures/7.png</file>
+        <file>images/gestures/8.png</file>
+        <file>images/gestures/9.png</file>
+        <file>images/gestures/d0.png</file>
+        <file>images/gestures/d1.png</file>
+        <file>images/gestures/d2.png</file>
+        <file>images/gestures/d3.png</file>
+        <file>images/gestures/t0.png</file>
+        <file>images/gestures/t1.png</file>
+        <file>images/gestures/t2.png</file>
+        <file>images/gestures/t3.png</file>
+        <file>qml/AddMove.qml</file>
+        <file>qml/MyMoves.qml</file>
     </qresource>
 </RCC>
