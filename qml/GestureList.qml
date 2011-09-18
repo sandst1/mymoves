@@ -40,7 +40,7 @@ Item {
                       border.color: "#0000ff"
                       border.width: 3
                       color: reserved ? "#8c8c8c" : "#ffffff"
-                      radius: 5
+                      radius: 5                      
                       Image {
                           width: 200
                           height: 200

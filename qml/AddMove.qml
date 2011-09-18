@@ -21,7 +21,7 @@ import com.meego 1.0
 
 Page {
     id: addMove
-
+    tools: commonTools
     orientationLock: PageOrientation.LockPortrait
 
     Column {
@@ -74,15 +74,7 @@ Page {
             onClicked: {
                 // TODO: CHECK that both gesture & app are selected!
                 // Save gesture
-                GestureListModel.saveItem(gestList.selectedIndex, appList.selectedApp, appList.selectedCmd);
-                pageStack.pop();
-            }
-        }
-        Button {
-            id: cancel
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "Cancel"
-            onClicked: {
+                GestureListModel.saveItem(gestList.selectedIndex, appList.selectedApp, appList.selectedCmd);                
                 pageStack.pop();
             }
         }

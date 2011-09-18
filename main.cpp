@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
     MyMovesInterface mymoves;
     view.rootContext()->setContextProperty("MyMovesInterface", &mymoves);
     view.rootContext()->setContextProperty("AppListModel", applist);
-    view.rootContext()->setContextProperty("GestureListModel", gesturelist);
+    gesturelist->setContextProperties(view.rootContext());
 
     Canvas::registerQML();
     view.setSource(QUrl("qrc:/qml/main.qml"));

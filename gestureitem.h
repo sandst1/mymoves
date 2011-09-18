@@ -22,9 +22,9 @@ public:
     QVariant data(int role) const;
     QHash<int, QByteArray> roleNames() const;
 
-    void setReserved(bool res) { m_reserved = res; }
-    void setApp(const QString& app) { m_app = app; }
-    void setCommand(const QString& cmd) { m_command = cmd; }
+    void setReserved(bool res);
+    void setApp(const QString& app);
+    void setCommand(const QString& cmd);
 
     inline QString id() const { return m_id; }
     inline QString image() const { return m_image; }

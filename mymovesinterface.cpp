@@ -32,8 +32,8 @@ MyMovesInterface::MyMovesInterface(QObject *parent) :
     QObject(parent)
 {
     loadGestures();
-    //system("killall mymoveserver");
-    //system("/opt/mymoveserver/bin/mymoveserver &");
+    system("killall mymoveserver");
+    system("/opt/mymoveserver/bin/mymoveserver &");
 }
 
 MyMovesInterface::~MyMovesInterface()

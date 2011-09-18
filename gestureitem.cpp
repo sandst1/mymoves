@@ -45,4 +45,18 @@ QHash<int, QByteArray> GestureItem::roleNames() const
     return names;
 }
 
+void GestureItem::setReserved(bool res)
+{
+    m_reserved = res;
+}
+
+void GestureItem::setApp(const QString& app)
+{
+    m_app = app;
+}
+
+void GestureItem::setCommand(const QString& cmd)
+{
+    m_command = cmd;
+}
 

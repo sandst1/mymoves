@@ -25,5 +25,30 @@ Page {
 
     orientationLock: PageOrientation.LockPortrait
 
+    anchors.centerIn: parent
+    width: 400
+    height: 800
 
+    ListView {
+        anchors.fill: parent
+        spacing: 10
+        model: SelectedGesturesList
+        orientation: ListView.Horizontal
+        delegate: Rectangle {
+                      id: delrect
+                      width: 400
+                      height: 200
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      border.color: "#0000ff"
+                      border.width: 3
+                      color: reserved ? "#8c8c8c" : "#ffffff"
+                      radius: 5
+                      Image {
+                          width: 300
+                          height: 300
+                          anchors.centerIn: parent
+                          source: image
+                      }
+                  }
+    }
 }

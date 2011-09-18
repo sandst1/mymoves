@@ -26,15 +26,9 @@ Page {
     orientationLock: PageOrientation.LockPortrait
 
     Column {
+        id: buttonCol
         anchors.centerIn: parent
         spacing: 20
-        /*Button {
-            id: recButton
-            text: "New Move"
-            onClicked: {
-                pageStack.push("qrc:/qml/NewMove.qml");
-            }
-        }*/
 
         Button {
             id: myMoves
