@@ -14,20 +14,12 @@
         <file>images/gestures/d3.png</file>
         <file>images/gestures/d4.png</file>
         <file>images/gestures/d5.png</file>
-        <file>images/gestures/d6.png</file>
-        <file>images/gestures/d7.png</file>
-        <file>images/gestures/d8.png</file>
-        <file>images/gestures/d9.png</file>
         <file>images/gestures/t0.png</file>
         <file>images/gestures/t1.png</file>
         <file>images/gestures/t2.png</file>
         <file>images/gestures/t3.png</file>
         <file>images/gestures/t4.png</file>
         <file>images/gestures/t5.png</file>
-        <file>images/gestures/t6.png</file>
-        <file>images/gestures/t7.png</file>
-        <file>images/gestures/t8.png</file>
-        <file>images/gestures/t9.png</file>
         <file>qml/BlackPage.qml</file>
         <file>qml/BlackButton.qml</file>
         <file>qml/MyText.qml</file>
