@@ -77,12 +77,12 @@ void createAppList(ListModel* applist)
 
 void createGestureList(ListModel* gesturelist)
 {
-    for (int i = 0; i < SINGLE_GESTURES; i++)
+    /*for (int i = 0; i < SINGLE_GESTURES; i++)
     {
         QVariant gnum(i);
         QString imgPath = QString(GESTURE_IMG_PATH) + gnum.toString() + GESTURE_IMG_EXT;
         gesturelist->appendRow(new GestureItem(QString(gnum.toString()),imgPath, gesturelist));
-    }
+    }*/
 
     for (int i = 0; i < DOUBLE_GESTURES; i++)
     {
@@ -115,6 +115,8 @@ int main(int argc, char *argv[])
     createAppList(applist);
 
     GestureListModel* gesturelist = new GestureListModel(new GestureItem, &app);
+    GestureListModel* selectedGests = new GestureListModel(new GestureItem, &app);
+    gesturelist->setSelectedList(selectedGests);
 
     // Create the gesture file if it doesn't exist
     if (!QFile::exists(GESTURES_CONF_FILE))

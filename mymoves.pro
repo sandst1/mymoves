@@ -52,7 +52,11 @@ OTHER_FILES += \
     qml/AppList.qml \
     qml/GestureList.qml \
     qml/MyMoves.qml \
-    qml/AddMove.qml
+    qml/AddMove.qml \
+    qml/BlackPage.qml \
+    qml/BlackButton.qml \
+    qml/MyMovesDelegate.qml \
+    qml/MyText.qml
 
 RESOURCES += \
     res.qrc

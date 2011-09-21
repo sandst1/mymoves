@@ -9,6 +9,16 @@ GestureItem::GestureItem(const QString& id, const QString& image, QObject *paren
       m_command()
 {}
 
+GestureItem::GestureItem(const GestureItem& item, QObject* parent)
+    : ListItem(parent)
+{
+    m_id = item.m_id;
+    m_image = item.m_image;
+    m_reserved = item.m_reserved;
+    m_app = item.m_app;
+    m_command = item.m_command;
+}
+
 QVariant GestureItem::data(int role) const
 {
     switch (role)

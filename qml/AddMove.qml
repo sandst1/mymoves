@@ -19,22 +19,20 @@
 import QtQuick 1.1
 import com.meego 1.0
 
-Page {
+BlackPage {
     id: addMove
-    tools: commonTools
-    orientationLock: PageOrientation.LockPortrait
 
     Column {
         anchors.centerIn: parent
         spacing: 15
         Rectangle {
             id: gesture
-            width: 400
-            height: 200
+            width: 220
+            height: 220
             anchors.horizontalCenter: parent.horizontalCenter
-            border.color: "#0000ff"
+            border.color: "#ffffff"
             border.width: 3
-            color: "#ffffff"
+            color: "#000000"
             radius: 5
             Image {
               width: 200
@@ -44,14 +42,14 @@ Page {
             }
         }
 
-        Text {
+        MyText {
             id: app
             anchors.horizontalCenter: parent.horizontalCenter
-            text: appList.selectedApp
+            text: appList.selectedApp=="" ? "No app selected" : appList.selectedApp
             font.pointSize: 24
         }
 
-        Button {
+        BlackButton {
             id: selectGest
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Select gesture"
@@ -59,7 +57,7 @@ Page {
                 gestList.visible = true;
             }
         }
-        Button {
+        BlackButton {
             id: selectApp
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Select app"
@@ -67,7 +65,7 @@ Page {
                 appList.visible = true;
             }
         }
-        Button {
+        BlackButton {
             id: done
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Done"
@@ -75,6 +73,14 @@ Page {
                 // TODO: CHECK that both gesture & app are selected!
                 // Save gesture
                 GestureListModel.saveItem(gestList.selectedIndex, appList.selectedApp, appList.selectedCmd);                
+                pageStack.pop();
+            }
+        }
+        BlackButton {
+            id: cancel
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Cancel"
+            onClicked: {
                 pageStack.pop();
             }
         }

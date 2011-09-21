@@ -18,33 +18,16 @@
  */
 import QtQuick 1.1
 import com.meego 1.0
+import QmlCanvas 1.0
+Page {
+    //tools: commonTools
+    orientationLock: PageOrientation.LockPortrait
+    anchors.fill: parent
 
-PageStackWindow {
-    id: appWindow
-
-    showStatusBar: false
-    initialPage: mainPage
-
-    MainPage{id: mainPage}
-
- /*   ToolBar {
-        id: commonTools
-        visible: true
-        platformStyle: ToolBarStyle {
-                           background: "image://theme/meegotouch-toolbar-portrait-background"
-                       }
-        ToolItem {
-            iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop();
-            anchors.left: parent===undefined ? undefined : parent.left
-            visible: pageStack.depth > 1 ? true : false
-        }
-    }*/
-
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem { text: "Sample menu item" }
-        }
+    Rectangle {
+        id: mainPage
+        color: "#000000"
+        anchors.fill: parent
     }
+
 }

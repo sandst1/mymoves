@@ -10,7 +10,7 @@
 GestureListModel::GestureListModel(ListItem* prototype, QObject *parent)
     : ListModel(prototype, parent),
       m_selectedGests(NULL)
-{    
+{
 }
 
 
@@ -88,10 +88,6 @@ void GestureListModel::saveToDisk()
 void GestureListModel::setContextProperties(QDeclarativeContext* ctx)
 {
     qDebug() << __PRETTY_FUNCTION__;
-    if (!m_selectedGests)
-    {
-        m_selectedGests = new GestureListModel(new ListItem, this);
-    }
     ctx->setContextProperty("GestureListModel", this);
     ctx->setContextProperty("SelectedGesturesList", m_selectedGests);
     qDebug() << __PRETTY_FUNCTION__ << "end";
@@ -105,13 +101,18 @@ void GestureListModel::updateSelectedGestures()
         m_selectedGests->clear();
         for (int i = 0; i < m_list.size(); i++)
         {
-            qDebug("Adding an item to the selected gestures");
-            GestureItem* item = static_cast<GestureItem*>(m_list[i]);
+            GestureItem* itemtocopy = static_cast<GestureItem*>(m_list[i]);
+            GestureItem* item = new GestureItem(*itemtocopy, m_selectedGests);
             if (item->reserved())
             {
-                m_selectedGests->appendRow(item);
+                m_selectedGests->appendRow(item);                
             }
         }
     }
     qDebug() << __PRETTY_FUNCTION__ << "end";
+}
+
+void GestureListModel::setSelectedList(GestureListModel* list)
+{
+    m_selectedGests = list;
 }

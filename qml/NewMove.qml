@@ -134,7 +134,7 @@ Page {
             maximumLength: 120
         }
 */
-        Button {
+        BlackButton {
             anchors.horizontalCenter: parent.horizontalCenter
             id: saveButton
             text: "Save"
@@ -153,7 +153,7 @@ Page {
             }
         }
 
-        Button {
+        BlackButton {
             anchors.horizontalCenter: parent.horizontalCenter
             id: clearButton
             text: "Clear"

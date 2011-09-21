@@ -19,46 +19,53 @@
 import QtQuick 1.1
 import com.meego 1.0
 
-Item {
+Rectangle {
     id: container
     anchors.centerIn: parent
     width: 400
     height: 800
+    color: "#000000"
 
     property string selectedGesture: ""
     property int    selectedIndex: -1
 
     ListView {
         anchors.fill: parent
-        spacing: 10
+        spacing: 20
         model: GestureListModel
         delegate: Rectangle {
-                      id: delrect
-                      width: 400
-                      height: 200
-                      anchors.horizontalCenter: parent.horizontalCenter
-                      border.color: "#0000ff"
-                      border.width: 3
-                      color: reserved ? "#8c8c8c" : "#ffffff"
-                      radius: 5                      
-                      Image {
-                          width: 200
-                          height: 200
-                          anchors.centerIn: parent
-                          source: image
-                      }
+            id: gestureDelegate
+            width: 400
+            height: 220
+            color: "#000000"
+            Rectangle {
+                id: delrect
+                width: 220
+                height: 220
+                anchors.centerIn: parent
+                border.color: "#ffffff"
+                border.width: 3
+                color: reserved ? "#8c8c8c" : "#000000"
+                radius: 5
+                Image {
+                    width: 200
+                    height: 200
+                    anchors.centerIn: parent
+                    source: image
+                }
 
-                      MouseArea {
-                          anchors.fill: parent
+                MouseArea {
+                    anchors.fill: parent
 
-                          onReleased: {
-                              if (!reserved) {
-                                  container.selectedGesture = image;
-                                  container.selectedIndex   = index;
-                                  container.visible = false;
-                              }
-                          }
-                      }
-                  }
+                    onReleased: {
+                        if (!reserved) {
+                            container.selectedGesture = image;
+                            container.selectedIndex   = index;
+                            container.visible = false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

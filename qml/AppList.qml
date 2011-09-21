@@ -19,13 +19,14 @@
 import QtQuick 1.1
 import com.meego 1.0
 
-Item {
+Rectangle {
     id: container
     anchors.centerIn: parent
+    color: "#000000"
     width: 400
     height: 800
 
-    property string selectedApp: "No app selected"
+    property string selectedApp: ""
     property string selectedCmd: ""
     ListView {
         anchors.fill: parent
@@ -36,14 +37,13 @@ Item {
                       width: 400
                       height: 100
                       border.width: 2
-                      border.color: "#0000ff"
-                      color: "#ffffff"
+                      border.color: "#ffffff"
+                      color: "#000000"
                       radius: 5
-                      Text {
+                      MyText {
                           id: nameText
                           anchors.centerIn: parent
                           text: name
-                          font.pointSize: 24
                       }
 
                       MouseArea {

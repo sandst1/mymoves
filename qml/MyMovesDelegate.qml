@@ -19,32 +19,35 @@
 import QtQuick 1.1
 import com.meego 1.0
 
-PageStackWindow {
-    id: appWindow
-
-    showStatusBar: false
-    initialPage: mainPage
-
-    MainPage{id: mainPage}
-
- /*   ToolBar {
-        id: commonTools
-        visible: true
-        platformStyle: ToolBarStyle {
-                           background: "image://theme/meegotouch-toolbar-portrait-background"
-                       }
-        ToolItem {
-            iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop();
-            anchors.left: parent===undefined ? undefined : parent.left
-            visible: pageStack.depth > 1 ? true : false
+Rectangle {
+    id: delrect
+    width: 350
+    height: 300
+    anchors.horizontalCenter: parent.horizontalCenter
+    border.color: "#ffffff"
+    border.width: 3
+    color: "#000000"
+    radius: 5
+    Item {
+        id: img
+        width: 220
+        height: 220
+        anchors.topMargin: 20
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        Image {
+            width: 200
+            height: 200
+            anchors.centerIn: parent
+            source: image
         }
-    }*/
+    }
 
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem { text: "Sample menu item" }
-        }
+    MyText {
+        anchors.top: img.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 10
+        text: app
+        color: "#ffffff"
     }
 }

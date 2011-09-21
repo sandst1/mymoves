@@ -19,18 +19,15 @@
 import QtQuick 1.1
 import com.meego 1.0
 import QmlCanvas 1.0
-Page {
+BlackPage {
     id: mainPage
-    tools: commonTools    
 
-    orientationLock: PageOrientation.LockPortrait
-
-    Column {
+    Column {        
         id: buttonCol
         anchors.centerIn: parent
         spacing: 20
 
-        Button {
+        BlackButton {
             id: myMoves
             text: "My moves"
             onClicked: {
@@ -38,7 +35,7 @@ Page {
             }
         }
 
-        Button {
+        BlackButton {
             id: addMove
             text: "Add a move"
             onClicked: {
@@ -46,7 +43,7 @@ Page {
             }
         }
 
-        Button {
+        BlackButton {
             id: observeButton
             text: "Start observing gestures"
             onClicked: {
@@ -54,7 +51,7 @@ Page {
             }
         }
 
-        Button {
+        BlackButton {
             id: stopObserving
             text: "Stop observing"
             onClicked: {

@@ -18,6 +18,7 @@ public:
 
     GestureItem(QObject *parent = 0): ListItem(parent) {}
     explicit GestureItem(const QString& id, const QString& image, QObject *parent = 0);
+    GestureItem(const GestureItem& item, QObject* parent = 0);
 
     QVariant data(int role) const;
     QHash<int, QByteArray> roleNames() const;

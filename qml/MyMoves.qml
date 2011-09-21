@@ -19,36 +19,32 @@
 import QtQuick 1.1
 import com.meego 1.0
 
-Page {
+BlackPage {
     id: myMoves
-    tools: commonTools
 
-    orientationLock: PageOrientation.LockPortrait
+    Item {
+        id: list
+        width: 480
+        anchors.top: parent.top
+        anchors.bottom: backbtn.top
+        anchors.bottomMargin: 20
+        ListView {
+            anchors.fill: parent
+            spacing: 10
+            clip: true
+            model: SelectedGesturesList
+            delegate: MyMovesDelegate {}
+        }
+    }
 
-    anchors.centerIn: parent
-    width: 400
-    height: 800
-
-    ListView {
-        anchors.fill: parent
-        spacing: 10
-        model: SelectedGesturesList
-        orientation: ListView.Horizontal
-        delegate: Rectangle {
-                      id: delrect
-                      width: 400
-                      height: 200
-                      anchors.horizontalCenter: parent.horizontalCenter
-                      border.color: "#0000ff"
-                      border.width: 3
-                      color: reserved ? "#8c8c8c" : "#ffffff"
-                      radius: 5
-                      Image {
-                          width: 300
-                          height: 300
-                          anchors.centerIn: parent
-                          source: image
-                      }
-                  }
+    BlackButton {
+        id: backbtn
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Back"
+        onClicked: {
+            pageStack.pop();
+        }
     }
 }
