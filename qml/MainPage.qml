@@ -34,7 +34,7 @@ BlackPage {
                 pageStack.push("qrc:/qml/MyMoves.qml");
             }
         }
-
+/*
         BlackButton {
             id: addMove
             text: "Add a move"
@@ -42,7 +42,7 @@ BlackPage {
                 pageStack.push("qrc:/qml/AddMove.qml");
             }
         }
-
+*/
         BlackButton {
             id: observeButton
             text: "Start observing gestures"

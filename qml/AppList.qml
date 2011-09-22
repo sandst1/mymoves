@@ -25,6 +25,7 @@ Rectangle {
     color: "#000000"
     width: 400
     height: 800
+    signal appSelected()
 
     property string selectedApp: ""
     property string selectedCmd: ""
@@ -53,6 +54,7 @@ Rectangle {
                               container.selectedApp = name;
                               container.selectedCmd = command;
                               container.visible = false;
+                              container.appSelected();
                           }
                       }
                   }

@@ -72,7 +72,7 @@ BlackPage {
             onClicked: {
                 // TODO: CHECK that both gesture & app are selected!
                 // Save gesture
-                GestureListModel.saveItem(gestList.selectedIndex, appList.selectedApp, appList.selectedCmd);                
+                GestureListModel.saveItem(gestList.selectedIndex, appList.selectedApp, appList.selectedCmd);
                 pageStack.pop();
             }
         }

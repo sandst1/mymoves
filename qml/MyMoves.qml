@@ -22,18 +22,27 @@ import com.meego 1.0
 BlackPage {
     id: myMoves
 
+    property alias selectAppList: appList
+
     Item {
-        id: list
+        id: listContainer
         width: 480
         anchors.top: parent.top
         anchors.bottom: backbtn.top
         anchors.bottomMargin: 20
         ListView {
+            id: list
             anchors.fill: parent
             spacing: 10
             clip: true
-            model: SelectedGesturesList
-            delegate: MyMovesDelegate {}
+            model: GestureListModel/*SelectedGesturesList*/
+            delegate: MyMovesDelegate {
+                          id: mymovedelegate
+                          onClicked: {
+                              list.currentIndex = index;
+                              appList.visible = true;
+                          }
+                      }
         }
     }
 
@@ -45,6 +54,16 @@ BlackPage {
         text: "Back"
         onClicked: {
             pageStack.pop();
+        }
+    }
+
+    AppList {
+        id: appList
+        visible: false
+
+        onAppSelected: {
+            list.currentItem.appText = appList.selectedApp;
+            GestureListModel.saveItem(list.currentIndex, appList.selectedApp, appList.selectedCmd);
         }
     }
 }

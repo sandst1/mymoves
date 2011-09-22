@@ -28,6 +28,10 @@ Rectangle {
     border.width: 3
     color: "#000000"
     radius: 5
+
+    property string appText: (app == "") ? "no app" : app
+
+    signal clicked()
     Item {
         id: img
         width: 220
@@ -47,7 +51,14 @@ Rectangle {
         anchors.top: img.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 10
-        text: app
+        text: delrect.appText
         color: "#ffffff"
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            delrect.clicked();
+        }
     }
 }
