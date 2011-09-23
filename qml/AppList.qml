@@ -39,15 +39,20 @@ Rectangle {
                       height: 100
                       border.width: 2
                       border.color: "#ffffff"
-                      color: "#000000"
+                      color: marea.pressed ? "#ffffff" : "#000000"
                       radius: 5
                       MyText {
                           id: nameText
+                          anchors.fill: parent
                           anchors.centerIn: parent
                           text: name
+                          color: marea.pressed ? "#000000" : "#ffffff"
+                          horizontalAlignment: Text.AlignHCenter
+                          verticalAlignment: Text.AlignVCenter
                       }
 
                       MouseArea {
+                          id: marea
                           anchors.fill: parent
 
                           onReleased: {

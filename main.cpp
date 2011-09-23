@@ -48,6 +48,7 @@ void createAppList(ListModel* applist)
         QString name("");
         QString command("");
         bool itemReady = false;
+        bool itemShownOnAppGrid = true;
         do
         {
             if (line.startsWith("Name="))
@@ -64,10 +65,14 @@ void createAppList(ListModel* applist)
                 if ( !name.isEmpty())
                     itemReady = true;
             }
+            else if (line.startsWith("NotShowIn=X-MeeGo"))
+            {
+                itemShownOnAppGrid = false;
+            }
             line = dfile.readLine();
         } while (!line.isEmpty());
 
-        if (itemReady)
+        if (itemReady && itemShownOnAppGrid)
             applist->appendRow(new AppItem(name, command, applist));
 
         dfile.close();

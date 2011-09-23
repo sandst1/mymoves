@@ -35,7 +35,7 @@ BlackPage {
             anchors.fill: parent
             spacing: 10
             clip: true
-            model: GestureListModel/*SelectedGesturesList*/
+            model: GestureListModel
             delegate: MyMovesDelegate {
                           id: mymovedelegate
                           onClicked: {

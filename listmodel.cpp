@@ -87,7 +87,7 @@ void ListModel::clear()
 
 bool ListModel::ItemLessThan(ListItem* a, ListItem* b)
 {
-    return (a->id().localeAwareCompare(b->id()) < 0);
+    return (a->id().toUpper().localeAwareCompare(b->id().toUpper()) < 0);
 }
 
 void ListModel::sort()

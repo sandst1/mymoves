@@ -25,7 +25,7 @@ BlackPage {
     Column {        
         id: buttonCol
         anchors.centerIn: parent
-        spacing: 20
+        spacing: 30
 
         BlackButton {
             id: myMoves

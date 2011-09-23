@@ -56,7 +56,9 @@ Rectangle {
     }
 
     MouseArea {
-        anchors.fill: parent
+        id: marea
+        anchors.fill: parent       
+
         onClicked: {
             delrect.clicked();
         }
