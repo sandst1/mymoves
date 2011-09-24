@@ -56,7 +56,8 @@ OTHER_FILES += \
     qml/BlackPage.qml \
     qml/BlackButton.qml \
     qml/MyMovesDelegate.qml \
-    qml/MyText.qml
+    qml/MyText.qml \
+    qml/serverstatus.js
 
 RESOURCES += \
     res.qrc

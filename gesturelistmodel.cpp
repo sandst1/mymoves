@@ -32,6 +32,10 @@ void GestureListModel::loadFromDisk()
     QFile gfile(GESTURES_CONF_FILE);
     gfile.open(QIODevice::ReadOnly);
     QTextStream stream(&gfile);
+
+    // Read the gesture file version
+    QString version = stream.readLine();
+
     QString line = stream.readLine();
     do
     {
@@ -74,6 +78,9 @@ void GestureListModel::saveToDisk()
     QFile gfile(GESTURES_CONF_FILE);
     gfile.open(QIODevice::WriteOnly);
     QTextStream stream(&gfile);
+
+    // Insert version
+    stream << "0" << endl;
 
     for (int i = 0; i < m_list.size(); i++)
     {

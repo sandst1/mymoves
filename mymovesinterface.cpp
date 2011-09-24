@@ -32,41 +32,12 @@ MyMovesInterface::MyMovesInterface(QObject *parent) :
     QObject(parent)
 {
     loadGestures();
-    system("killall mymoveserver");
-    system("/opt/mymoveserver/bin/mymoveserver &");
+
+    serverStatus();
 }
 
 MyMovesInterface::~MyMovesInterface()
-{
-    system("killall mymoveserver");
-}
-
-void MyMovesInterface::recordGesture(int x, int y, int w, int h)
-{
-    qDebug("MyMovesInterface::recordGesture");
-    QDBusConnection bus = QDBusConnection::sessionBus();
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.sandst1.mymoves", "/sandst1/mymoves", "org.sandst1.mymoves", "recordGesture");
-    QList<QVariant> args;
-    args.append(x);
-    args.append(y);
-    args.append(w);
-    args.append(h);
-    msg.setArguments(args);
-    QDBusMessage reply = bus.call(msg);
-    qDebug() << reply;
-}
-
-void MyMovesInterface::saveGesture(QString command)
-{
-    qDebug("MyMovesInterface::saveGesture");
-    QDBusConnection bus = QDBusConnection::sessionBus();
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.sandst1.mymoves", "/sandst1/mymoves", "org.sandst1.mymoves", "saveGesture");
-    QList<QVariant> args;
-    args.append(command);
-    msg.setArguments(args);
-    QDBusMessage reply = bus.call(msg);
-    qDebug() << reply;
-}
+{}
 
 void MyMovesInterface::observeGestures()
 {
@@ -116,12 +87,12 @@ void MyMovesInterface::loadGestures()
     }
 }
 
-int MyMovesInterface::newGestureNumber()
+int MyMovesInterface::serverStatus()
 {
-    qDebug("MyMovesInterface::newGestureNumber");
-    QDir gdir(GESTURES_PATH);
-    QStringList namefilter(NAME_FILTER);
-    QStringList files = gdir.entryList(namefilter);
-    qDebug("Number: %d", files.count());
-    return files.count();
+    qDebug("MyMovesInterface::serverStatus");
+    QDBusConnection bus = QDBusConnection::sessionBus();
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.sandst1.mymoves", "/sandst1/mymoves", "org.sandst1.mymoves", "serverStatus");
+    QDBusMessage reply = bus.call(msg);
+    qDebug() << "Server status: " << reply.arguments().at(0).toString();
+    return reply.arguments().at(0).toInt();
 }

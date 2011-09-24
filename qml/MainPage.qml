@@ -19,44 +19,57 @@
 import QtQuick 1.1
 import com.meego 1.0
 import QmlCanvas 1.0
+import "serverstatus.js" as SERVER
+
 BlackPage {
     id: mainPage
+    property int serverStatusToPreserve: -1
+    property int serverStatus: -1
 
     Column {        
         id: buttonCol
         anchors.centerIn: parent
         spacing: 30
 
-        BlackButton {
-            id: myMoves
-            text: "My moves"
-            onClicked: {
-                pageStack.push("qrc:/qml/MyMoves.qml");
-            }
+        MyText {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: mainPage.serverStatus == SERVER.IDLE ? "Not observing gestures" : "Observing gestures"
         }
-/*
+
         BlackButton {
-            id: addMove
-            text: "Add a move"
+            id: serverCtrlBtn
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: mainPage.serverStatus == SERVER.IDLE ? "Start observing" : "Stop observing"
             onClicked: {
-                pageStack.push("qrc:/qml/AddMove.qml");
-            }
-        }
-*/
-        BlackButton {
-            id: observeButton
-            text: "Start observing gestures"
-            onClicked: {
-                MyMovesInterface.observeGestures();
+                if (mainPage.serverStatus == SERVER.IDLE)
+                {
+                    MyMovesInterface.observeGestures();
+                }
+                else
+                {
+                    MyMovesInterface.stopObserving();
+                }
+                mainPage.serverStatus = MyMovesInterface.serverStatus();
             }
         }
 
         BlackButton {
-            id: stopObserving
-            text: "Stop observing"
+            id: myMoves
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "My moves"
             onClicked: {
-                MyMovesInterface.stopObserving();
+                pageStack.push("qrc:/qml/MyMoves.qml");
+                mainPage.serverStatusToPreserve = mainPage.serverStatus;
+                if (mainPage.serverStatus != SERVER.IDLE)
+                {
+                    MyMovesInterface.stopObserving();
+                }
             }
         }
+    }
+
+    Component.onCompleted: {
+        console.log("MainPage onCompleted");
+        mainPage.serverStatus = MyMovesInterface.serverStatus();
     }
 }

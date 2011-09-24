@@ -24,5 +24,6 @@
         <file>qml/BlackButton.qml</file>
         <file>qml/MyText.qml</file>
         <file>qml/MyMovesDelegate.qml</file>
+        <file>qml/serverstatus.js</file>
     </qresource>
 </RCC>

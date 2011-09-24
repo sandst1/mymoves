@@ -31,12 +31,10 @@ public:
 signals:
 
 public slots:
-    Q_INVOKABLE void recordGesture(int x, int y, int w, int h);
-    Q_INVOKABLE void saveGesture(QString command);
     Q_INVOKABLE void observeGestures();
     Q_INVOKABLE void stopObserving();
     Q_INVOKABLE void loadGestures();
-    Q_INVOKABLE int  newGestureNumber();
+    Q_INVOKABLE int serverStatus();
 private:
     struct Gesture
     {

@@ -18,6 +18,7 @@
  */
 import QtQuick 1.1
 import com.meego 1.0
+import "serverstatus.js" as SERVER
 
 BlackPage {
     id: myMoves
@@ -53,6 +54,11 @@ BlackPage {
         anchors.horizontalCenter: parent.horizontalCenter
         text: "Back"
         onClicked: {
+            if (mainPage.serverStatusToPreserve != SERVER.IDLE)
+            {
+                MyMovesInterface.observeGestures();
+                mainPage.serverStatus = MyMovesInterface.serverStatus();
+            }
             pageStack.pop();
         }
     }
