@@ -1,4 +1,12 @@
-mymoves (0.0.1) unstable; urgency=low
+mymoves (0.0.2) unstable; urgency=low
+
+  * First user-friendly release. Most significant changes:
+    - Simple configuration UI for selecting app for each gesture
+    - Option to start/stop observing gestures
+
+ -- sandst1 <topi.santakivi@gmail.com>  Sat, 24 Sep 2011 18:12:52 +0300
+
+mymoves (0.0.2) unstable; urgency=low
 
   * Initial Release.
 
