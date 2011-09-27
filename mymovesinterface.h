@@ -30,11 +30,13 @@ public:
     ~MyMovesInterface();
 signals:
 
-public slots:
+public slots:   
     Q_INVOKABLE void observeGestures();
     Q_INVOKABLE void stopObserving();
     Q_INVOKABLE void loadGestures();
-    Q_INVOKABLE int serverStatus();
+    Q_INVOKABLE int  serverStatus();
+
+    Q_INVOKABLE void setServerObservingOnExit(bool set);
 private:
     struct Gesture
     {
@@ -42,6 +44,7 @@ private:
         QString imagePath;
     };
     QList<Gesture> m_gestures;
+    bool m_setObserving;
 };
 
 #endif // MYMOVESINTERFACE_H

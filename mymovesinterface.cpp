@@ -31,13 +31,20 @@
 MyMovesInterface::MyMovesInterface(QObject *parent) :
     QObject(parent)
 {
+    m_setObserving = false;
     loadGestures();
 
     serverStatus();
 }
 
 MyMovesInterface::~MyMovesInterface()
-{}
+{
+    qDebug("~MyMovesInterface, m_setObserving %d", m_setObserving);
+    if (m_setObserving)
+    {
+        observeGestures();
+    }
+}
 
 void MyMovesInterface::observeGestures()
 {
@@ -95,4 +102,10 @@ int MyMovesInterface::serverStatus()
     QDBusMessage reply = bus.call(msg);
     qDebug() << "Server status: " << reply.arguments().at(0).toString();
     return reply.arguments().at(0).toInt();
+}
+
+void MyMovesInterface::setServerObservingOnExit(bool set)
+{
+    qDebug("MyMovesInterface::setServerObservingOnExit %d", set);
+    m_setObserving = set;
 }

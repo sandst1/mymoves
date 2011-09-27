@@ -23,22 +23,29 @@ Rectangle {
     id: container
     anchors.centerIn: parent
     color: "#000000"
-    width: 400
-    height: 800
+    width: 480
+    height: 854
     signal appSelected()
 
     property string selectedApp: ""
     property string selectedCmd: ""
     ListView {
-        anchors.fill: parent
+        id: listView
+        width: 480
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.bottom: cancelBtn.top
+        anchors.bottomMargin: 20
         spacing: 10
+        clip: true
         model: AppListModel
         delegate: Rectangle {
-                      id: delrect
+                      id: delrect                      
                       width: 400
                       height: 100
                       border.width: 2
                       border.color: "#ffffff"
+                      anchors.horizontalCenter: parent.horizontalCenter
                       color: marea.pressed ? "#ffffff" : "#000000"
                       radius: 5
                       MyText {
@@ -63,5 +70,18 @@ Rectangle {
                           }
                       }
                   }
+    }
+
+    BlackButton {
+        id: cancelBtn
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 20
+        text: "Cancel"
+
+        onClicked: {
+            container.visible = false;
+        }
+
     }
 }

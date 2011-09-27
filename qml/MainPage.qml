@@ -44,10 +44,12 @@ BlackPage {
                 if (mainPage.serverStatus == SERVER.IDLE)
                 {
                     MyMovesInterface.observeGestures();
+                    MyMovesInterface.setServerObservingOnExit(true);
                 }
                 else
                 {
                     MyMovesInterface.stopObserving();
+                    MyMovesInterface.setServerObservingOnExit(false);
                 }
                 mainPage.serverStatus = MyMovesInterface.serverStatus();
             }
@@ -71,5 +73,13 @@ BlackPage {
     Component.onCompleted: {
         console.log("MainPage onCompleted");
         mainPage.serverStatus = MyMovesInterface.serverStatus();
+        if (mainPage.serverStatus == SERVER.IDLE)
+        {
+            MyMovesInterface.setServerObservingOnExit(false);
+        }
+        else
+        {
+            MyMovesInterface.setServerObservingOnExit(true);
+        }
     }
 }
