@@ -50,6 +50,7 @@ install: build
 
 	# Add here commands to install the package into debian/mymoves.
 	$(MAKE) INSTALL_ROOT="$(CURDIR)"/debian/mymoves install
+	chmod gou+x $(CURDIR)/debian/mymoves/opt/mymoves/bin/mymoveserver.sh
 
 
 # Build architecture-independent files here.
