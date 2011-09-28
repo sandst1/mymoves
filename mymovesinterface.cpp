@@ -31,9 +31,7 @@
 MyMovesInterface::MyMovesInterface(QObject *parent) :
     QObject(parent)
 {
-    m_setObserving = false;
-    loadGestures();
-
+    m_setObserving = false;   
     serverStatus();
 }
 
@@ -64,44 +62,17 @@ void MyMovesInterface::stopObserving()
     qDebug() << reply;
 }
 
-void MyMovesInterface::loadGestures()
-{
-    m_gestures.clear();
-    qDebug("MyMoveServer::loadGestures");
-    QDir gdir(GESTURES_PATH);
-    QStringList namefilter(NAME_FILTER);
-    QStringList files = gdir.entryList(namefilter);
-
-    for (int i = 0; i < files.count(); i++)
-    {
-        QFile gestFile(QString(GESTURES_PATH) + "/" + files.at(i));
-        QString line;
-        int x = 0;
-        int y = 0;
-        gestFile.open(QIODevice::ReadOnly);
-        QTextStream gstream(&gestFile);
-        Gesture gesture;
-        // Read the command attached to this gesture
-        line = gstream.readLine();
-        gesture.command = line;
-        qDebug() << "Command for this gesture: " << gesture.command;
-
-        gesture.imagePath = QString(GESTURES_PATH) + "/" + files.at(i) + ".png";
-
-        gestFile.close();
-
-        m_gestures.append(gesture);
-    }
-}
-
 int MyMovesInterface::serverStatus()
 {
     qDebug("MyMovesInterface::serverStatus");
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusMessage msg = QDBusMessage::createMethodCall("org.sandst1.mymoves", "/sandst1/mymoves", "org.sandst1.mymoves", "serverStatus");
     QDBusMessage reply = bus.call(msg);
-    qDebug() << "Server status: " << reply.arguments().at(0).toString();
-    return reply.arguments().at(0).toInt();
+    qDebug("Got %d arguments in the reply", reply.arguments().length());
+    if (reply.arguments().length() > 0)
+        return reply.arguments().at(0).toInt();
+    else
+        return 0;
 }
 
 void MyMovesInterface::setServerObservingOnExit(bool set)

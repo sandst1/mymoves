@@ -33,7 +33,6 @@ signals:
 public slots:   
     Q_INVOKABLE void observeGestures();
     Q_INVOKABLE void stopObserving();
-    Q_INVOKABLE void loadGestures();
     Q_INVOKABLE int  serverStatus();
 
     Q_INVOKABLE void setServerObservingOnExit(bool set);
