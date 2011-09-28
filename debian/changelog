@@ -1,3 +1,9 @@
+mymoves (0.1.0) unstable; urgency=low
+  
+  * Bundled release: mymoveserver + mymoves
+
+ -- sandst1 <topi.santakivi@gmail.com>  Wed, 28 Sep 2011 20:07:16 +0300
+
 mymoves (0.0.3) unstable; urgency=low
 
   * Added cancel button to gesture list
