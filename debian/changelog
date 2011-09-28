@@ -1,6 +1,6 @@
 mymoves (0.1.0) unstable; urgency=low
   
-  * Bundled release: mymoveserver + mymoves
+  * First release with mymoveserver + mymoves in the same package
 
  -- sandst1 <topi.santakivi@gmail.com>  Wed, 28 Sep 2011 20:07:16 +0300
 

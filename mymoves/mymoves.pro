@@ -39,7 +39,6 @@ OTHER_FILES += \
     qml/MainPage.qml \
     qml/main.qml \
     mymoves.desktop \
-    mymoves.svg \
     mymoves.png \
     qtc_packaging/debian_harmattan/rules \
     qtc_packaging/debian_harmattan/README \
@@ -58,6 +57,10 @@ OTHER_FILES += \
     qml/MyMovesDelegate.qml \
     qml/MyText.qml \
     qml/serverstatus.js
+
+svgicon.files = mymoves.svg
+svgicon.path = /usr/share/icons/hicolor/scalable/apps/
+INSTALLS += svgicon
 
 RESOURCES += \
     res.qrc
