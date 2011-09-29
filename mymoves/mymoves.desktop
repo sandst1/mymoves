@@ -3,7 +3,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Name=mymoves
+Name=MyMoves
 Exec=invoker --single-instance --type=e /opt/mymoves/bin/mymoves
 Icon=/usr/share/icons/hicolor/scalable/apps/mymoves.svg
 X-Window-Icon=

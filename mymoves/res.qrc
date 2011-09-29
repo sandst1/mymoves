@@ -25,5 +25,7 @@
         <file>qml/MyText.qml</file>
         <file>qml/MyMovesDelegate.qml</file>
         <file>qml/serverstatus.js</file>
+        <file>qml/About.qml</file>
+        <file>images/mymoves_120x120.png</file>
     </qresource>
 </RCC>

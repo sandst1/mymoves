@@ -515,13 +515,15 @@
       <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
       <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MaemoDeployStep</value>
       <value key="Qt4ProjectManager.MaemoRunConfiguration.DeployToSysroot" type="bool">true</value>
-      <value key="Qt4ProjectManager.MaemoRunConfiguration.DeviceId" type="qulonglong">3</value>
+      <value key="Qt4ProjectManager.MaemoRunConfiguration.DeviceId" type="qulonglong">4</value>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedFiles" type="QVariantList">
        <value type="QString">/scratchbox/users/topi/home/topi/scratchbox/mymoves-build-harmattan/mymoves_0_0_3_armel.deb</value>
        <value type="QString">/scratchbox/users/topi/home/topi/scratchbox/mymoves-build-harmattan/mymoves_0_0_2_armel.deb</value>
        <value type="QString">/scratchbox/users/topi/home/topi/scratchbox/mymoves-build-harmattan/mymoves_0_0_1_armel.deb</value>
+       <value type="QString">/scratchbox/users/topi/home/topi/scratchbox/mymoves-build-harmattan/mymoves_10_0_0_armel.deb</value>
       </valuelist>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedHosts" type="QVariantList">
+       <value type="QString">192.168.2.15</value>
        <value type="QString">192.168.2.15</value>
        <value type="QString">192.168.2.15</value>
        <value type="QString">192.168.2.15</value>
@@ -530,11 +532,13 @@
        <value type="QString"></value>
        <value type="QString"></value>
        <value type="QString"></value>
+       <value type="QString"></value>
       </valuelist>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes" type="QVariantList">
        <value type="QDateTime">2011-09-28T19:43:19</value>
        <value type="QDateTime">2011-09-27T22:48:14</value>
        <value type="QDateTime">2011-09-24T15:48:33</value>
+       <value type="QDateTime">2011-09-29T23:53:43</value>
       </valuelist>
      </valuemap>
      <value key="ProjectExplorer.BuildStepList.StepsCount" type="int">2</value>

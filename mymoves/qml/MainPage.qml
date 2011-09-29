@@ -26,45 +26,64 @@ BlackPage {
     property int serverStatusToPreserve: -1
     property int serverStatus: -1
 
-    Column {        
-        id: buttonCol
+    Column {
         anchors.centerIn: parent
-        spacing: 30
-
-        MyText {
+        spacing: 100
+        Image {
+            id: logo
+            source: "qrc:///images/mymoves_120x120.png"
             anchors.horizontalCenter: parent.horizontalCenter
-            text: mainPage.serverStatus == SERVER.IDLE ? "Not observing gestures" : "Observing gestures"
         }
 
-        BlackButton {
-            id: serverCtrlBtn
+        Column {
+            id: buttonCol
             anchors.horizontalCenter: parent.horizontalCenter
-            text: mainPage.serverStatus == SERVER.IDLE ? "Start observing" : "Stop observing"
-            onClicked: {
-                if (mainPage.serverStatus == SERVER.IDLE)
-                {
-                    MyMovesInterface.observeGestures();
-                    MyMovesInterface.setServerObservingOnExit(true);
-                }
-                else
-                {
-                    MyMovesInterface.stopObserving();
-                    MyMovesInterface.setServerObservingOnExit(false);
-                }
-                mainPage.serverStatus = MyMovesInterface.serverStatus();
+            spacing: 30
+
+            MyText {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: mainPage.serverStatus == SERVER.IDLE ? "Not observing gestures" : "Observing gestures"
             }
-        }
 
-        BlackButton {
-            id: myMoves
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "My moves"
-            onClicked: {
-                pageStack.push("qrc:/qml/MyMoves.qml");
-                mainPage.serverStatusToPreserve = mainPage.serverStatus;
-                if (mainPage.serverStatus != SERVER.IDLE)
-                {
-                    MyMovesInterface.stopObserving();
+            BlackButton {
+                id: serverCtrlBtn
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: mainPage.serverStatus == SERVER.IDLE ? "Start observing" : "Stop observing"
+                onClicked: {
+                    if (mainPage.serverStatus == SERVER.IDLE)
+                    {
+                        MyMovesInterface.observeGestures();
+                        MyMovesInterface.setServerObservingOnExit(true);
+                    }
+                    else
+                    {
+                        MyMovesInterface.stopObserving();
+                        MyMovesInterface.setServerObservingOnExit(false);
+                    }
+                    mainPage.serverStatus = MyMovesInterface.serverStatus();
+                }
+            }
+
+            BlackButton {
+                id: myMoves
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "My moves"
+                onClicked: {
+                    pageStack.push("qrc:/qml/MyMoves.qml");
+                    mainPage.serverStatusToPreserve = mainPage.serverStatus;
+                    if (mainPage.serverStatus != SERVER.IDLE)
+                    {
+                        MyMovesInterface.stopObserving();
+                    }
+                }
+            }
+
+            BlackButton {
+                id: about
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "About"
+                onClicked: {
+                    pageStack.push("qrc:/qml/About.qml");
                 }
             }
         }

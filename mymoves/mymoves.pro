@@ -56,7 +56,8 @@ OTHER_FILES += \
     qml/BlackButton.qml \
     qml/MyMovesDelegate.qml \
     qml/MyText.qml \
-    qml/serverstatus.js
+    qml/serverstatus.js \
+    qml/About.qml
 
 svgicon.files = mymoves.svg
 svgicon.path = /usr/share/icons/hicolor/scalable/apps/

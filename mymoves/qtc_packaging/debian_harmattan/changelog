@@ -1,11 +1,16 @@
-mymoves (0.0.3) unstable; urgency=low
+mymoves (10.0.0) unstable; urgency=low
+  * Add an artificially big version number for dev purposes
+
+ -- sandst1 <topi.santakivi@gmail.com>  Thu, 29 Sep 2011 23:22:21 +0300
+
+mymoves (10.0.0) unstable; urgency=low
 
   * Added cancel button to gesture list
   * Observing gestures isn't stopped if quitting in MyMoves view
 
  -- sandst1 <topi.santakivi@gmail.com>  Wed, 28 Sep 2011 19:04:08 +0300
 
-mymoves (0.0.3) unstable; urgency=low
+mymoves (10.0.0) unstable; urgency=low
 
   * First user-friendly release. Most significant changes:
     - Simple configuration UI for selecting app for each gesture
@@ -13,7 +18,7 @@ mymoves (0.0.3) unstable; urgency=low
 
  -- sandst1 <topi.santakivi@gmail.com>  Sat, 24 Sep 2011 18:12:52 +0300
 
-mymoves (0.0.3) unstable; urgency=low
+mymoves (10.0.0) unstable; urgency=low
 
   * Initial Release.
 
