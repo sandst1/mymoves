@@ -8,6 +8,6 @@
 #define GESTURE_IMG_PATH "qrc:/images/gestures/"
 #define GESTURE_IMG_EXT ".png"
 
-#define GESTURES_CONF_FILE "/home/user/MyDocs/.moves/mymoves.conf"
+#define GESTURES_CONF_FILE "/home/user/.config/mymoves.conf"
 
 #endif // CONSTANTS_H

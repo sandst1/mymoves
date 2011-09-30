@@ -25,7 +25,6 @@
 #include <QTextStream>
 #include "mymovesinterface.h"
 
-#define GESTURES_PATH "/home/user/MyDocs/.moves"
 #define NAME_FILTER "mymove*"
 
 MyMovesInterface::MyMovesInterface(QObject *parent) :
