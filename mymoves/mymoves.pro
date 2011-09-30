@@ -63,6 +63,10 @@ svgicon.files = mymoves.svg
 svgicon.path = /usr/share/icons/hicolor/scalable/apps/
 INSTALLS += svgicon
 
+splash.files = images/splash.jpg
+splash.path = /usr/share/mymoves
+INSTALLS += splash
+
 RESOURCES += \
     res.qrc
 
