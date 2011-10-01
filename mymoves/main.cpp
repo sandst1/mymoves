@@ -47,6 +47,7 @@ void createAppList(ListModel* applist)
         QString line = dfile.readLine();
         QString name("");
         QString command("");
+        QString icon("");
         bool itemReady = false;
         bool itemShownOnAppGrid = true;
         do
@@ -57,6 +58,28 @@ void createAppList(ListModel* applist)
                 //qDebug() << name;
                 if ( !command.isEmpty())
                     itemReady = true;
+            }
+            else if (line.startsWith("Icon="))
+            {
+                //qDebug() << "Icon found: " << line;
+                icon = line.trimmed().mid(5);
+                if (!icon.contains("/"))
+                {
+                    if (QFile::exists(QString(ICON_PATH) + icon + ".png"))
+                        icon = "file://" + QString(ICON_PATH) + icon + ".png";
+                    if (QFile::exists(QString(ICON_PATH) + icon + ".svg"))
+                        icon = "file://" + QString(ICON_PATH) + icon + ".svg";
+                    else if (QFile::exists(QString(ICON_PATH2) + icon + ".png"))
+                        icon = "file://" + QString(ICON_PATH2) + icon + ".png";
+                    else if (QFile::exists(QString(ICON_PATH2) + icon + ".svg"))
+                        icon = "file://" + QString(ICON_PATH2) + icon + ".svg";
+
+                }
+                else
+                {
+                    icon = "file://" + icon;
+                }
+                //qDebug() << "Parsed icon: " << icon;
             }
             else if (line.startsWith("Exec="))
             {
@@ -73,7 +96,13 @@ void createAppList(ListModel* applist)
         } while (!line.isEmpty());
 
         if (itemReady && itemShownOnAppGrid)
-            applist->appendRow(new AppItem(name, command, applist));
+        {
+            if (icon.size() == 0)
+            {
+                icon = QString(DEFAULT_APP_ICON);
+            }
+            applist->appendRow(new AppItem(name, command, icon, applist));
+        }
 
         dfile.close();
     }

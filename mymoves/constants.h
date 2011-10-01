@@ -10,4 +10,8 @@
 
 #define GESTURES_CONF_FILE "/home/user/.config/mymoves.conf"
 
+#define ICON_PATH "/usr/share/themes/blanco/meegotouch/icons/"
+#define ICON_PATH2 "/usr/share/themes/base/meegotouch/icons/"
+#define DEFAULT_APP_ICON "file:///usr/share/themes/blanco/meegotouch/icons/icon-l-default-application.png"
+
 #endif // CONSTANTS_H

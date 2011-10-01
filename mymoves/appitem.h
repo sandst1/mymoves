@@ -18,11 +18,11 @@ public:
     enum Roles {
         NameRole = Qt::UserRole+1
         ,CommandRole
-        //,IconRole
+        ,IconRole
     };
 
     AppItem(QObject* parent = 0): ListItem(parent) {}
-    explicit AppItem(const QString& name, const QString& command, QObject *parent = 0);
+    explicit AppItem(const QString& name, const QString& command, const QString& icon, QObject *parent = 0);
     QVariant data(int role) const;
     QHash<int, QByteArray> roleNames() const;
 
@@ -30,6 +30,7 @@ public:
 
     inline QString name() const { return m_name; }
     inline QString command() const { return m_command; }
+    inline QString icon() const { return m_icon; }
 signals:
     void dataChanged();
 public slots:
@@ -37,6 +38,7 @@ public slots:
 private:
     QString m_name;
     QString m_command;
+    QString m_icon;
 };
 
 #endif // APPITEM_H

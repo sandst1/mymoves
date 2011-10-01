@@ -48,10 +48,21 @@ Rectangle {
                       anchors.horizontalCenter: parent.horizontalCenter
                       color: marea.pressed ? "#ffffff" : "#000000"
                       radius: 5
+                      Image {
+                          id: appIcon
+                          source: icon
+                          anchors.verticalCenter: parent.verticalCenter
+                          anchors.left: parent.left
+                          anchors.margins: 15
+                          width: sourceSize.width
+                          height: sourceSize.height
+                      }
+
                       MyText {
                           id: nameText
-                          anchors.fill: parent
-                          anchors.centerIn: parent
+                          width: parent.width - appIcon.width
+                          anchors.left: appIcon.right
+                          anchors.verticalCenter: appIcon.verticalCenter
                           text: name
                           color: marea.pressed ? "#000000" : "#ffffff"
                           horizontalAlignment: Text.AlignHCenter
