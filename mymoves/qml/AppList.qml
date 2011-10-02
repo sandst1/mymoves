@@ -41,32 +41,37 @@ Rectangle {
         model: AppListModel
         delegate: Rectangle {
                       id: delrect                      
-                      width: 400
+                      width: 460
                       height: 100
                       border.width: 2
                       border.color: "#ffffff"
                       anchors.horizontalCenter: parent.horizontalCenter
                       color: marea.pressed ? "#ffffff" : "#000000"
                       radius: 5
-                      Image {
-                          id: appIcon
-                          source: icon
-                          anchors.verticalCenter: parent.verticalCenter
-                          anchors.left: parent.left
-                          anchors.margins: 15
-                          width: sourceSize.width
-                          height: sourceSize.height
-                      }
 
-                      MyText {
-                          id: nameText
-                          width: parent.width - appIcon.width
-                          anchors.left: appIcon.right
-                          anchors.verticalCenter: appIcon.verticalCenter
-                          text: name
-                          color: marea.pressed ? "#000000" : "#ffffff"
-                          horizontalAlignment: Text.AlignHCenter
-                          verticalAlignment: Text.AlignVCenter
+                      Row {
+                          anchors.left: parent.left
+                          anchors.verticalCenter: parent.verticalCenter
+                          anchors.margins: 15
+                          spacing: 15
+                          Image {
+                              id: appIcon
+                              source: icon
+                              anchors.verticalCenter: parent.verticalCenter
+                              width: sourceSize.width
+                              height: sourceSize.height
+                          }
+
+                          MyText {
+                              id: nameText
+                              text: name
+                              width: 335
+                              color: marea.pressed ? "#000000" : "#ffffff"
+                              anchors.verticalCenter: appIcon.verticalCenter
+                              horizontalAlignment: Text.AlignLeft
+                              verticalAlignment: Text.AlignVCenter
+                              elide: Text.ElideRight
+                          }
                       }
 
                       MouseArea {

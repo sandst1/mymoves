@@ -69,4 +69,3 @@ void GestureItem::setCommand(const QString& cmd)
 {
     m_command = cmd;
 }
-

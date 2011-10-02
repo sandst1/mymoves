@@ -30,7 +30,7 @@ public:
     inline QString id() const { return m_id; }
     inline QString image() const { return m_image; }
     inline bool reserved() const { return m_reserved; }
-    inline QString app() const { return m_app; }
+    inline QString app() const { return m_app; }    
     inline QString command() const { return m_command; }
 
 signals:
@@ -43,7 +43,6 @@ private:
     bool m_reserved;
     QString m_app;
     QString m_command;
-
 };
 
 #endif // GESTUREITEM_H

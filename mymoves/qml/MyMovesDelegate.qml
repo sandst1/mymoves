@@ -24,7 +24,7 @@ Rectangle {
     width: 350
     height: 300
     anchors.horizontalCenter: parent.horizontalCenter
-    border.color: "#ffffff"
+    border.color: "#000080"
     border.width: 3
     color: "#000000"
     radius: 5

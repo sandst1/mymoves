@@ -15,9 +15,6 @@ public:
     void saveToDisk();
 
     void setContextProperties(QDeclarativeContext* ctx);
-    void updateSelectedGestures();
-
-    void setSelectedList(GestureListModel* list);
 signals:
 
 public slots:

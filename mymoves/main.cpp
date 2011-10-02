@@ -54,7 +54,7 @@ void createAppList(ListModel* applist)
         {
             if (line.startsWith("Name="))
             {
-                name = line.mid(5);
+                name = line.trimmed().mid(5);
                 //qDebug() << name;
                 if ( !command.isEmpty())
                     itemReady = true;
@@ -149,8 +149,6 @@ int main(int argc, char *argv[])
     createAppList(applist);
 
     GestureListModel* gesturelist = new GestureListModel(new GestureItem, &app);
-    GestureListModel* selectedGests = new GestureListModel(new GestureItem, &app);
-    gesturelist->setSelectedList(selectedGests);
 
     // Create the gesture file if it doesn't exist
     if (!QFile::exists(GESTURES_CONF_FILE))
