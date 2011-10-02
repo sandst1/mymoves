@@ -1,3 +1,14 @@
+mymoves (0.1.1) unstable; urgency=low
+  
+  * Moved mymoves.conf to ~/.config
+  * About screen
+  * Splash screen
+  * Logo to main page
+  * Icons in app selection list
+  * Slight tweaking of the UI
+
+ -- sandst1 <topi.santakivi@gmail.com>  Sun, 02 Oct 2011 14:36:31 +0300
+
 mymoves (0.1.0) unstable; urgency=low
   
   * First release with mymoveserver + mymoves in the same package

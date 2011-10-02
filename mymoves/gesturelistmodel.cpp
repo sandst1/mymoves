@@ -41,7 +41,6 @@ void GestureListModel::loadFromDisk()
         QString id;
         QString app;
         QString command;
-        QString icon;
         bool reserved = false;
         qDebug("### Gesture ###");
         for (int i = 0; i < data.size(); i++)
