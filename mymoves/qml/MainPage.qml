@@ -67,7 +67,7 @@ BlackPage {
             BlackButton {
                 id: myMoves
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "My moves"
+                text: "My Moves"
                 onClicked: {
                     pageStack.push("qrc:/qml/MyMoves.qml");
                     mainPage.serverStatusToPreserve = mainPage.serverStatus;
@@ -75,6 +75,15 @@ BlackPage {
                     {
                         MyMovesInterface.stopObserving();
                     }
+                }
+            }
+
+            BlackButton {
+                id: howto
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "How-to"
+                onClicked: {
+                    pageStack.push("qrc:/qml/Howto.qml");
                 }
             }
 

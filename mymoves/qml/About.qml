@@ -25,8 +25,8 @@ BlackPage {
     MyText {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.margins: 40
-        font.pointSize: 52
+        anchors.margins: 20
+        font.pointSize: 48
         text: "About"
     }
 
@@ -38,7 +38,7 @@ BlackPage {
 
         MyText {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "MyMoves 0.1.0" // TODO: Get version number from elsewhere
+            text: "MyMoves 0.1.2" // TODO: Get version number from elsewhere
         }
 
         MyText {
