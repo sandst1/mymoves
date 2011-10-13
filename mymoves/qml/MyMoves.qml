@@ -68,7 +68,14 @@ BlackPage {
         visible: false
 
         onAppSelected: {
-            list.currentItem.appText = appList.selectedApp;
+            if (appList.selectedApp != "")
+            {
+                list.currentItem.appText = appList.selectedApp;
+            }
+            else
+            {
+                list.currentItem.appText = "no app";
+            }
             GestureListModel.saveItem(list.currentIndex, appList.selectedApp, appList.selectedCmd);
         }
     }

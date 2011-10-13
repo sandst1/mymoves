@@ -58,8 +58,8 @@ Rectangle {
                               id: appIcon
                               source: icon
                               anchors.verticalCenter: parent.verticalCenter
-                              width: sourceSize.width
-                              height: sourceSize.height
+                              width: 80
+                              height: 80
                           }
 
                           MyText {
@@ -86,6 +86,45 @@ Rectangle {
                           }
                       }
                   }
+            header: Rectangle {
+                        width: 460
+                        height: 120
+                        color: headerArea.pressed ? "#ffffff" : "#000000"
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        Rectangle {
+                            id: listheader
+                            width: 460
+                            height: 100
+                            border.width: 2
+                            border.color: "#ffffff"
+                            anchors.centerIn: parent
+                            color: headerArea.pressed ? "#ffffff" : "#000000"
+                            radius: 5
+
+                            MyText {
+                                id: disableText
+                                text: "No application"
+                                anchors.fill: parent
+                                color: headerArea.pressed ? "#000000" : "#ffffff"
+                                anchors.centerIn: parent
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            MouseArea {
+                                id: headerArea
+                                anchors.fill: parent
+
+                                onReleased: {
+                                    container.selectedApp = "";
+                                    container.selectedCmd = "";
+                                    container.visible = false;
+                                    container.appSelected();
+                                }
+                            }
+                        }
+                    }
     }
 
     BlackButton {
