@@ -8,18 +8,6 @@
         <file>qml/GestureList.qml</file>
         <file>qml/AddMove.qml</file>
         <file>qml/MyMoves.qml</file>
-        <file>images/gestures/d0.png</file>
-        <file>images/gestures/d1.png</file>
-        <file>images/gestures/d2.png</file>
-        <file>images/gestures/d3.png</file>
-        <file>images/gestures/d4.png</file>
-        <file>images/gestures/d5.png</file>
-        <file>images/gestures/t0.png</file>
-        <file>images/gestures/t1.png</file>
-        <file>images/gestures/t2.png</file>
-        <file>images/gestures/t3.png</file>
-        <file>images/gestures/t4.png</file>
-        <file>images/gestures/t5.png</file>
         <file>qml/BlackPage.qml</file>
         <file>qml/BlackButton.qml</file>
         <file>qml/MyText.qml</file>
@@ -28,5 +16,29 @@
         <file>qml/About.qml</file>
         <file>images/mymoves_120x120.png</file>
         <file>qml/Howto.qml</file>
+        <file>images/gestures/d0.png</file>
+        <file>images/gestures/d1.png</file>
+        <file>images/gestures/d2.png</file>
+        <file>images/gestures/d3.png</file>
+        <file>images/gestures/d4.png</file>
+        <file>images/gestures/d5.png</file>
+        <file>images/gestures/d6.png</file>
+        <file>images/gestures/d7.png</file>
+        <file>images/gestures/d8.png</file>
+        <file>images/gestures/d9.png</file>
+        <file>images/gestures/d10.png</file>
+        <file>images/gestures/d11.png</file>
+        <file>images/gestures/t0.png</file>
+        <file>images/gestures/t1.png</file>
+        <file>images/gestures/t2.png</file>
+        <file>images/gestures/t3.png</file>
+        <file>images/gestures/t4.png</file>
+        <file>images/gestures/t5.png</file>
+        <file>images/gestures/t6.png</file>
+        <file>images/gestures/t7.png</file>
+        <file>images/gestures/t8.png</file>
+        <file>images/gestures/t9.png</file>
+        <file>images/gestures/t10.png</file>
+        <file>images/gestures/t11.png</file>
     </qresource>
 </RCC>
