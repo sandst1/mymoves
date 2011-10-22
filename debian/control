@@ -13,7 +13,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: mymoveserver
 Description: MyMoves: Launch apps with multitouch gestures
  MyMoves brings a new way to open apps in N9/N950. It comes with
- 12 predefined gestures that you can set to open any application 
+ 24 predefined gestures that you can set to open any application 
  you want. The gestures work from anywhere in the system, even
  the lock screen. All you need to do is to select the applications
  you want and the gestures are ready for use.

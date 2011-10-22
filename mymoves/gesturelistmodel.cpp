@@ -77,7 +77,7 @@ void GestureListModel::saveToDisk()
     QTextStream stream(&gfile);
 
     // Insert version
-    stream << "0" << endl;
+    stream << CONFIG_FILE_VERSION << endl;
 
     for (int i = 0; i < m_list.size(); i++)
     {
