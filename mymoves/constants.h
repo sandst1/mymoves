@@ -1,11 +1,11 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define CONFIG_FILE_VERSION 1
+#define CONFIG_FILE_VERSION 2
 
 #define SINGLE_GESTURES 0
-#define DOUBLE_GESTURES 12
-#define TRIPLE_GESTURES 12
+#define DOUBLE_GESTURES 16
+#define TRIPLE_GESTURES 16
 
 #define GESTURE_IMG_PATH "qrc:/images/gestures/"
 #define GESTURE_IMG_EXT ".png"

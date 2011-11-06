@@ -40,5 +40,13 @@
         <file>images/gestures/t9.png</file>
         <file>images/gestures/t10.png</file>
         <file>images/gestures/t11.png</file>
+        <file>images/gestures/d12.png</file>
+        <file>images/gestures/d13.png</file>
+        <file>images/gestures/d14.png</file>
+        <file>images/gestures/d15.png</file>
+        <file>images/gestures/t12.png</file>
+        <file>images/gestures/t13.png</file>
+        <file>images/gestures/t14.png</file>
+        <file>images/gestures/t15.png</file>
     </qresource>
 </RCC>
