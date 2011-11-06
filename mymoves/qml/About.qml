@@ -38,7 +38,7 @@ BlackPage {
 
         MyText {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "MyMoves 0.1.3" // TODO: Get version number from elsewhere
+            text: "MyMoves 0.1.4" // TODO: Get version number from elsewhere
         }
 
         MyText {
