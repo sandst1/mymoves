@@ -1,6 +1,7 @@
 mymoves (0.1.4) unstable; urgency=low
  
   * Improved recognition accuracy
+  * 8 new gestures: Corner-to-corner swipes
 
  -- sandst1 <topi.santakivi@gmail.com>  Sun, 06 Nov 2011 23:41:02 +0200
 
