@@ -25,7 +25,10 @@ Rectangle {
     color: "#000000"
     width: 480
     height: 854
-    signal appSelected()
+
+    property alias model: listView.model
+
+    signal itemSelected()
 
     property string selectedApp: ""
     property string selectedCmd: ""
@@ -82,11 +85,11 @@ Rectangle {
                               container.selectedApp = name;
                               container.selectedCmd = command;
                               container.visible = false;
-                              container.appSelected();
+                              container.itemSelected();
                           }
                       }
                   }
-            header: Rectangle {
+            /*header: Rectangle {
                         width: 460
                         height: 120
                         color: headerArea.pressed ? "#ffffff" : "#000000"
@@ -104,14 +107,13 @@ Rectangle {
 
                             MyText {
                                 id: disableText
-                                text: "No application"
+                                text: container.noItemText
                                 anchors.fill: parent
                                 color: headerArea.pressed ? "#000000" : "#ffffff"
                                 anchors.centerIn: parent
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
-                            }
-
+                            }*
                             MouseArea {
                                 id: headerArea
                                 anchors.fill: parent
@@ -120,11 +122,11 @@ Rectangle {
                                     container.selectedApp = "";
                                     container.selectedCmd = "";
                                     container.visible = false;
-                                    container.appSelected();
+                                    container.itemSelected();
                                 }
                             }
                         }
-                    }
+                    }*/
     }
 
     BlackButton {

@@ -24,5 +24,6 @@
         <file>images/gestures/d5.png</file>
         <file>images/gestures/d6.png</file>
         <file>images/gestures/d7.png</file>
+        <file>qml/SelectLaunchable.qml</file>
     </qresource>
 </RCC>

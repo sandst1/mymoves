@@ -58,7 +58,8 @@ OTHER_FILES += \
     qml/MyText.qml \
     qml/serverstatus.js \
     qml/About.qml \
-    qml/Howto.qml
+    qml/Howto.qml \
+    qml/SelectLaunchable.qml
 
 svgicon.files = mymoves.svg
 svgicon.path = /usr/share/icons/hicolor/scalable/apps/

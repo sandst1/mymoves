@@ -29,7 +29,7 @@ Rectangle {
     color: "#000000"
     radius: 5
 
-    property string appText: (app == "") ? "no app" : app
+    property string appText: (app == "") ? "no item" : app
 
     signal clicked()
     Item {

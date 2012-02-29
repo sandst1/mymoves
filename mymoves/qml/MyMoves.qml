@@ -23,8 +23,6 @@ import "serverstatus.js" as SERVER
 BlackPage {
     id: myMoves
 
-    property alias selectAppList: appList
-
     Item {
         id: listContainer
         width: 480
@@ -41,7 +39,7 @@ BlackPage {
                           id: mymovedelegate
                           onClicked: {
                               list.currentIndex = index;
-                              appList.visible = true;
+                              selectLaunchable.visible = true;
                           }
                       }
         }
@@ -63,20 +61,22 @@ BlackPage {
         }
     }
 
-    AppList {
-        id: appList
+    SelectLaunchable {
+        id: selectLaunchable
+        width: 480
+        height: 854
         visible: false
 
-        onAppSelected: {
-            if (appList.selectedApp != "")
+        onItemSelected: {
+            if (selectLaunchable.selectedName !== "")
             {
-                list.currentItem.appText = appList.selectedApp;
+                list.currentItem.appText = selectLaunchable.selectedName;
             }
             else
             {
-                list.currentItem.appText = "no app";
+                list.currentItem.appText = "no item";
             }
-            GestureListModel.saveItem(list.currentIndex, appList.selectedApp, appList.selectedCmd);
+            GestureListModel.saveItem(list.currentIndex, selectLaunchable.selectedName, selectLaunchable.selectedCmd);
         }
     }
 }

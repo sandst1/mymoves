@@ -109,6 +109,92 @@ void createAppList(ListModel* applist)
     applist->sort();
 }
 
+void createBookmarkList(ListModel* bmarks)
+{
+    QDir dir("/home/user/.local/share/applications");
+    QStringList filter("browser*.desktop");
+    QStringList files = dir.entryList(filter);
+    for (int i = 0; i < files.count(); i++)
+    {
+        QFile dfile(QString("/home/user/.local/share/applications/") + files.at(i));
+        dfile.open(QIODevice::ReadOnly);
+
+        QString line = dfile.readLine();
+        QString name("");
+        QString command("");
+        QString icon("");
+        bool itemReady = false;
+        do
+        {
+            if (line.startsWith("Name="))
+            {
+                name = line.trimmed().mid(5);
+                //qDebug() << name;
+                if ( !command.isEmpty())
+                    itemReady = true;
+            }
+            else if (line.startsWith("Icon="))
+            {
+                //qDebug() << "Icon found: " << line;
+                icon = line.trimmed().mid(5);
+                icon = "file://" + icon;
+                //qDebug() << "Parsed icon: " << icon;
+            }
+            else if (line.startsWith("URL="))
+            {
+                command = "/usr/bin/invoker --type=m /usr/bin/grob " + line.mid(4);
+                //qDebug() << command;
+                if ( !name.isEmpty())
+                    itemReady = true;
+            }
+            line = dfile.readLine();
+        } while (!line.isEmpty());
+
+        if (itemReady)
+        {
+            if (icon.size() == 0)
+            {
+                icon = QString(DEFAULT_APP_ICON);
+            }
+            bmarks->appendRow(new AppItem(name, command, icon, bmarks));
+        }
+
+        dfile.close();
+    }
+    bmarks->sort();
+}
+
+void createScriptList(ListModel* scripts)
+{
+    QDir dir("/home/user/.config/mymovescripts");
+    QStringList filter("*.sh");
+    QStringList files = dir.entryList(filter);
+    for (int i = 0; i < files.count(); i++)
+    {
+        QFile dfile(QString("/home/user/.config/mymovescripts/") + files.at(i));
+        dfile.open(QIODevice::ReadOnly);
+
+        QString line = dfile.readLine();
+        QString name("");
+        QString command("");
+        do
+        {
+            if (line.startsWith("#Name="))
+            {
+                name = line.trimmed().mid(6);
+            }
+            line = dfile.readLine();
+        } while (!line.isEmpty());
+
+        command = "sh " + QString("/home/user/.config/mymovescripts/") + files.at(i);
+
+        scripts->appendRow(new AppItem(name, command, "", scripts));
+
+        dfile.close();
+    }
+    scripts->sort();
+}
+
 void createGestureList(ListModel* gesturelist)
 {
     /*for (int i = 0; i < SINGLE_GESTURES; i++)
@@ -148,6 +234,13 @@ int main(int argc, char *argv[])
     ListModel* applist = new ListModel(new AppItem, &app);
     createAppList(applist);
 
+    ListModel* bookmarks = new ListModel(new AppItem, &app);
+    createBookmarkList(bookmarks);
+
+    ListModel* scripts = new ListModel(new AppItem, &app);
+    createScriptList(scripts);
+
+
     GestureListModel* gesturelist = new GestureListModel(new GestureItem, &app);
 
     // Create the gesture file if it doesn't exist
@@ -164,6 +257,8 @@ int main(int argc, char *argv[])
     MyMovesInterface mymoves;
     view.rootContext()->setContextProperty("MyMovesInterface", &mymoves);
     view.rootContext()->setContextProperty("AppListModel", applist);
+    view.rootContext()->setContextProperty("BookmarksModel", bookmarks);
+    view.rootContext()->setContextProperty("ActionsModel", scripts);
     gesturelist->setContextProperties(view.rootContext());
 
     Canvas::registerQML();
