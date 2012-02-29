@@ -4,7 +4,7 @@
 #define CONFIG_FILE_VERSION 2
 
 #define SINGLE_GESTURES 0
-#define DOUBLE_GESTURES 16
+#define DOUBLE_GESTURES 8
 #define TRIPLE_GESTURES 16
 
 #define GESTURE_IMG_PATH "qrc:/images/gestures/"

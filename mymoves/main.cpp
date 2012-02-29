@@ -34,8 +34,6 @@
 #include "mymovesinterface.h"
 #include "qdeclarativetoucharea.h"
 
-int gestureNumbers[16] = { 0, 1, 2, 3, 12, 13, 14, 15, 4, 5, 6, 7, 8, 9, 10, 11 };
-
 void createAppList(ListModel* applist)
 {
     QDir dir("/usr/share/applications");
@@ -122,17 +120,17 @@ void createGestureList(ListModel* gesturelist)
 
     for (int i = 0; i < DOUBLE_GESTURES; i++)
     {
-        QVariant gnum(gestureNumbers[i]);
+        QVariant gnum(i);
         QString imgPath = QString(GESTURE_IMG_PATH) + "d" + gnum.toString() + GESTURE_IMG_EXT;
         gesturelist->appendRow(new GestureItem(QString("d"+gnum.toString()), imgPath, gesturelist));
     }
 
-    for (int i = 0; i < TRIPLE_GESTURES; i++)
+    /*for (int i = 0; i < TRIPLE_GESTURES; i++)
     {
         QVariant gnum(gestureNumbers[i]);
         QString imgPath = QString(GESTURE_IMG_PATH) + "t" + gnum.toString() + GESTURE_IMG_EXT;
         gesturelist->appendRow(new GestureItem(QString("t"+gnum.toString()), imgPath, gesturelist));
-    }
+    }*/
 }
 
 int main(int argc, char *argv[])
