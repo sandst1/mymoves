@@ -61,14 +61,14 @@ Rectangle {
                               id: appIcon
                               source: icon
                               anchors.verticalCenter: parent.verticalCenter
-                              width: 80
-                              height: 80
+                              width: source == "" ? 0 : 80
+                              height: source == "" ? 0 : 80
                           }
 
                           MyText {
                               id: nameText
                               text: name
-                              width: 335
+                              width: appIcon.source == "" ?  450 : 335
                               color: marea.pressed ? "#000000" : "#ffffff"
                               anchors.verticalCenter: appIcon.verticalCenter
                               horizontalAlignment: Text.AlignLeft

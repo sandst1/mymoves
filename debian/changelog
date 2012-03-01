@@ -1,9 +1,10 @@
 mymoves (0.2.0) unstable; urgency=low
  
   * Use the 8 most reliable gestures 
+  * Launch bookmarks with gestures
   * Support for running scripts based on gestures 
 
- -- sandst1 <topi.santakivi@gmail.com>  Sun, 06 Nov 2011 23:41:02 +0200
+ -- sandst1 <topi.santakivi@gmail.com>  Thu, 01 Mar 2012 20:16:24 +0200
 
 mymoves (0.1.4) unstable; urgency=low
  
