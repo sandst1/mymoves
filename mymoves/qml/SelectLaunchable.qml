@@ -37,6 +37,11 @@ Rectangle {
         anchors.centerIn: parent
         spacing: 30
 
+        MyText {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Edit item"
+        }
+
         BlackButton {
             id: actionBtn
             anchors.horizontalCenter: parent.horizontalCenter
@@ -67,7 +72,7 @@ Rectangle {
         BlackButton {
             id: clearBtn
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Clear item"
+            text: "Clear"
             onClicked: {
                 selectPage.selectedName = "";
                 selectPage.selectedCmd = "";
