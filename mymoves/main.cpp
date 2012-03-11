@@ -211,12 +211,12 @@ void createGestureList(ListModel* gesturelist)
         gesturelist->appendRow(new GestureItem(QString("d"+gnum.toString()), imgPath, gesturelist));
     }
 
-    /*for (int i = 0; i < TRIPLE_GESTURES; i++)
+    for (int i = 0; i < TRIPLE_GESTURES; i++)
     {
-        QVariant gnum(gestureNumbers[i]);
+        QVariant gnum(i);
         QString imgPath = QString(GESTURE_IMG_PATH) + "t" + gnum.toString() + GESTURE_IMG_EXT;
         gesturelist->appendRow(new GestureItem(QString("t"+gnum.toString()), imgPath, gesturelist));
-    }*/
+    }
 }
 
 int main(int argc, char *argv[])

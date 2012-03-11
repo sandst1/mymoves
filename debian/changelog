@@ -1,3 +1,10 @@
+mymoves (0.2.1) unstable; urgency=low
+ 
+  * Add back the simplest 8 three-finger gestures
+  * Vibra feedback support on recognized gestures 
+
+ -- sandst1 <topi.santakivi@gmail.com>  Sun, 11 Mar 2012 13:24:53 +0200
+
 mymoves (0.2.0) unstable; urgency=low
  
   * Use the 8 most reliable gestures 
